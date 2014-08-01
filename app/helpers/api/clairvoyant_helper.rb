@@ -1,0 +1,2 @@
+module Api::ClairvoyantHelper
+end

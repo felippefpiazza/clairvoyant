@@ -1,7 +1,6 @@
 class User < Person
   #attr_accessible :first_name, :last_name, :email, :password
   has_many :api_key
-  belongs_to :establishment, :autosave => true
   validates :first_name, :presence => {message: 'First name is required'}
   validates_uniqueness_of :email , :message => 'E-mail already in use'
   validates_uniqueness_of  :username  , :message => 'Username already in use'

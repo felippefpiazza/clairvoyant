@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     get 'user/nothing' => 'user#nothing', :default => {:format => 'xml'}
     post 'add_address' => 'address#add_address', :default => {:format => 'xml'}
     post 'create_device' => 'device#create_device', :default => {:format => 'xml'}
+    post 'create_clairvoyant' => 'clairvoyant#create_clairvoyant', :default => {:format => 'xml'}    
     post 'send_params' => 'device#send_params', :default => {:format => 'xml'}    
     post 'get_address' => 'address#get_address', :default => {:format => 'xml'}
     post 'get_user' => 'user#get_user', :default => {:format => 'xml'}

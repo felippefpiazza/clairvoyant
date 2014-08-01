@@ -3,7 +3,7 @@ class ApiKey < ActiveRecord::Base
   belongs_to :clairvoyant
   
   def generate_key
-    self.class.where(:device_signature => self.device_signature).each do |old_key|
+    self.class.where(:clairvoyant => self.clairvoyant).each do |old_key|
       old_key.revoke
     end
     self.expires_at = 1.month.from_now
