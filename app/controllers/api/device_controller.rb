@@ -14,6 +14,7 @@ def destroy_all
   ApiKey.destroy_all
   Deviceparameter.destroy_all
   response = {:error => {:response => false, :error_msgs => []}}
+    send_response(response)
 end
 
   def send_params

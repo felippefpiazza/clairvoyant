@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
   private
   
   def restrict_access
-    #raise request.env.inspect
+ #   raise request.env
     if (c = Clairvoyant.where(:serial_hex => request.env["HTTP_CLAIRVOYANT"]).first).present?
       (key = ApiKey.where(access_token: request.env["HTTP_TOKEN"], 
                         revoked: false, 
