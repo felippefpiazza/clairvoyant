@@ -1,4 +1,5 @@
 class Device < ActiveRecord::Base
+  has_paper_trail
   belongs_to  :clairvoyant
   has_many  :deviceparameters
   

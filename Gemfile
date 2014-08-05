@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 
+gem 'paper_trail', '~> 3.0.3'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.1'
 # Use mysql as the database for Active Record

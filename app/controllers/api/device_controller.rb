@@ -1,4 +1,5 @@
 class Api::DeviceController < ApplicationController
+  before_filter :restrict_access , :except => [ :destroy_all ]
 
   def create_device
     serial = params[:serial]
@@ -6,6 +7,14 @@ class Api::DeviceController < ApplicationController
     response = {:device => d.as_json,  :error => {:response => false, :error_msgs => []}}
     send_response(response)
   end
+
+def destroy_all
+  Clairvoyant.destroy_all
+  Device.destroy_all
+  ApiKey.destroy_all
+  Deviceparameter.destroy_all
+  response = {:error => {:response => false, :error_msgs => []}}
+end
 
   def send_params
     device_data = params[:device]

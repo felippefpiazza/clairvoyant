@@ -1,4 +1,5 @@
 class ApiKey < ActiveRecord::Base
+  has_paper_trail  
   before_create :generate_access_token
   belongs_to :clairvoyant
   
@@ -12,8 +13,7 @@ class ApiKey < ActiveRecord::Base
 
   
   def revoke
-      self.revoked = true
-      self.save
+      self.destroy
   end
     
   private
