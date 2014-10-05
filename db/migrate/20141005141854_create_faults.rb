@@ -1,7 +1,8 @@
 class CreateFaults < ActiveRecord::Migration
   def change
     create_table :faults do |t|
-      t.string  :name,  :null => false
+      t.string  :cob_id
+      t.string  :name
       t.string  :bit0
       t.integer :bit0_code
       t.string  :bit1

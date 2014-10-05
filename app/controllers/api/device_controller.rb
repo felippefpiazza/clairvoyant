@@ -22,17 +22,35 @@ end
     serial = device_data[:serial]
     device = Device.where(:serial_hex => serial).first
     p = device_data[:parameters]
+    f = device_data[:faults]
+    i = device_data[:deviceinfo]    
 
     param_return = []
-
-    p.each do |parameter|
-      dp = device.setparams(parameter["Parameter_Index"],parameter["Display_Value"])
-      param_return << dp.as_json(include: :parameter)
+    if p != nil
+      p.each do |parameter|
+        dp = device.setparams(parameter["Parameter_Index"],parameter["Display_Value"])
+        param_return << dp.as_json(include: :parameter)
+      end
     end
     
-    response = {:device => device, :parameters => param_return.as_json , :error => {:response => false, :error_msgs => []}}
-    send_response(response)
+    fault_return = []
+    if f != nil
+      f.each do |fault|      
+        df = device.setfaults(fault["Fault_Index"],fault["Display_Value"])
+        fault_return << df.as_json(include: :fault)
+      end
+    end
     
+    deviceinfo_return = []
+    if i != nil
+      i.each do |deviceinfo|      
+        di = device.setdeviceinfos(deviceinfo["DeviceInfo_Index"],deviceinfo["Display_Value"])
+        deviceinfo_return << di.as_json(include: :deviceinfo)
+      end
+    end  
+    
+    response = {:device => device, :parameters => param_return.as_json, :faults => fault_return.as_json, :deviceinfos => deviceinfo_return.as_json , :error => {:response => false, :error_msgs => []}}
+    send_response(response)
   end
   
   def send_faults
@@ -44,7 +62,7 @@ end
     param_return = []
 
     p.each do |parameter|
-      df = device.setfaults(parameter.keys.first,parameter[parameter.keys.first])
+      df = device.setfaults_by_name(parameter.keys.first,parameter[parameter.keys.first])
       param_return << df.as_json
     end
     
