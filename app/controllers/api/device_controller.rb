@@ -35,6 +35,24 @@ end
     
   end
   
+  def send_faults
+    device_data = params[:device]
+    serial = device_data[:SerialNumber]
+    device = Device.where(:serial_hex => serial).first
+    p = device_data[:parameters]
+
+    param_return = []
+
+    p.each do |parameter|
+      df = device.setfaults(parameter.keys.first,parameter[parameter.keys.first])
+      param_return << df.as_json
+    end
+    
+    response = {:device => device, :parameters => param_return.as_json , :error => {:response => false, :error_msgs => []}}
+    send_response(response)
+    
+  end
+
 
 end
 

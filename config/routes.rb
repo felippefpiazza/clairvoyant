@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     post 'create_device' => 'device#create_device', :default => {:format => 'xml'}
     post 'create_clairvoyant' => 'clairvoyant#create_clairvoyant', :default => {:format => 'xml'}    
     post 'send_params' => 'device#send_params', :default => {:format => 'xml'}    
+    post 'send_faults' => 'device#send_faults', :default => {:format => 'xml'} 
     post 'destroy_all' => 'device#destroy_all', :default => {:format => 'xml'}    
     get 'destroy_all' => 'device#destroy_all', :default => {:format => 'xml'}    
     post 'get_address' => 'address#get_address', :default => {:format => 'xml'}
