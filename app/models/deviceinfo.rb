@@ -1,2 +1,2 @@
-class Deviceinfo < ActiveRecord::Base
+class Deviceinfo < Devicevalue
 end

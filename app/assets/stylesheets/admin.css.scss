@@ -1,0 +1,50 @@
+@import 'colors';
+@import 'bourbon';
+@import "forms";
+@import "buttons";
+@import "errors";
+@import "authentication";
+@import "report";
+@import 'admin/toolbar';
+@import 'admin/menubar';
+@import 'admin/main';
+@import 'admin/pagination';
+@import 'admin/status';
+
+body#admin {
+  min-width: 1024px;    
+  background: #fff;
+  
+  a:hover {
+    text-decoration: none;
+  }
+  
+  .green {
+    color: $green;
+  }
+  
+  .blue {
+    color: $blue;
+  }
+  
+  .purple {
+    color: $purple;
+  }
+  
+  .orange {
+    color: $orange;
+  }
+  
+  .yellow {
+    color: $yellow;
+  }
+  
+  .gray {
+    color: $gray;
+  }  
+
+  .red {
+    color: $red;
+  }  
+}
+  

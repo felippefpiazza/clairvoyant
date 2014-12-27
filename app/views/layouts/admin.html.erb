@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Clairvoyant</title>
+  <%= stylesheet_link_tag    "admin", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= yield(:javascript_includes) %>
+  <%= csrf_meta_tags %>
+</head>
+<body id='admin'>
+  <div id='container'>
+    <%= render '/admin/layouts/toolbar' %>
+        
+    <div id='main'>
+      <% flash.each do |name, msg| %>
+        <%= content_tag :div, msg, id: "flash_#{name}", class: "flash #{name}" %>
+      <% end %>
+      <%= yield %>
+    </div>
+  </div>
+</body>
+</html>

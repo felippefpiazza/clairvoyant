@@ -1,5 +1,10 @@
-class Api::ClairvoyantController < ApplicationController
-    before_filter :restrict_access , :except => [ :create_clairvoyant ]
+class Api::ClairvoyantController < Api::ApplicationController
+    before_filter :restrict_access , :except => [ :create_clairvoyant , :all_clairvoyants]
+
+    def all_clairvoyants
+      @clairvoyants =  Clairvoyant.all
+      send_response(@clairvoyants.as_json(include: :device))
+    end
   
   def create_clairvoyant
     serial = params[:serial]

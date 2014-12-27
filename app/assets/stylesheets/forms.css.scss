@@ -1,0 +1,219 @@
+/* -------------------------------------------------------------- 
+   
+   forms.css
+   * Sets up some default styling for forms
+   * Gives you classes to enhance your forms
+   
+   Usage:
+   * For text fields, use class .title or .text
+   
+-------------------------------------------------------------- */
+
+form        { display:block; min-height: 400px; position: relative }
+label       { font-weight: bold; margin: 2px }
+fieldset    { padding: 2px; margin: 2px 0 2px 0; border: 1px solid #ccc; }
+legend      { font-weight: bold; font-size:1.2em; }
+
+
+/* Form fields
+-------------------------------------------------------------- */
+.field {
+  input, input,
+  textarea, select {
+    margin:0.5em 0;
+    border:1px solid #bbb;
+    border-top-left-radius: 5px 5px;
+    border-top-right-radius: 5px 5px;
+    border-bottom-right-radius: 5px 5px;
+    border-bottom-left-radius: 5px 5px;      
+  }
+
+  input[type=file] {
+    border: none;
+    width: auto;
+  }
+  
+  input[type=radio] {
+    width: auto;
+  }
+  
+  input:focus, input:focus,
+  textarea:focus, select:focus {
+    border:1px solid #666;
+  }
+
+  input     { width: 100%; padding:5px; }
+  textarea  { width: 100%; height: 250px; padding:5px; }
+  
+  input.big, textarea.big {
+    width: 90%;
+  }
+
+  input.short, textarea.short {
+    width: 60%;
+  }  
+
+  input.veryshort, textarea.veryshort {
+    width: 30%;
+  }
+
+  input.disabled, textarea.disabled {
+    border: 0px;
+    margin: 0px;
+    padding: 0px;
+  }
+}
+
+.actions {
+  position: absolute;
+  clear: both;
+  bottom: 0px;
+  width: 98%;
+  margin-top: 20px;
+  margin-bottom: -80px;
+  padding: 1%;
+  text-align: center;
+  background-color: #eee;
+  border-top-left-radius: 5px 5px;
+  border-top-right-radius: 5px 5px;
+  border-bottom-right-radius: 5px 5px;
+  border-bottom-left-radius: 5px 5px;        
+}
+
+form {
+  .ui-autocomplete-loading {
+    background: white url('/images/ui-anim_basic_16x16.gif') right center no-repeat;
+  }  
+  
+  .left {
+    text-align: left;
+  }
+
+  .center {
+    text-align: center;
+  }
+
+  .right {
+    text-align: right;
+    
+    .error_message {
+      text-align: right;
+    }
+  }
+
+  .valign-top {
+    vertical-align: top;
+    td,th {
+      vertical-align: top;
+    }
+  }
+    
+  .row {
+    position: relative;
+    display: block;
+    clear: both;
+    
+    .col {
+      position: relative;
+      float: left;
+    }
+
+    .button.middle {
+      vertical-align: middle;
+      margin-top: 10px;
+    }
+    
+    .w5 {
+      width: 5%;
+    }
+
+    .w25 {
+      width: 25%;
+    }
+        
+    .w30 {
+      width: 30%;
+    }
+
+    .w50 {
+      width: 50%;
+    }
+    
+    .w70 {
+      width: 70%;
+    }
+  }
+  
+  .field {
+    margin-bottom: 10px;
+    
+    .date {
+      width: 75px;
+      text-align: center;
+    }
+  }
+  
+  .invalid {
+    label {
+      color: red;
+    }
+    
+    input[type='text'] {
+      border-color: red;
+    }
+  }
+  
+  .error_message {
+    text-align: left;
+    font-weight: bold;
+    color: red;
+    margin-bottom: 5px;
+    margin-left: 5px;
+  }
+  
+  table.borders {      
+    tr.invalid td {
+      background-color: #FBE3E4;
+    }
+      
+    thead {
+      th {
+        font-weight: bold;
+        background-color: #eee;
+        line-height: 16px;
+        border-right: 1px solid white;
+        border-top: 2px solid rgb(180,195,200);          
+      }
+    
+      th:first-child {
+        border-left: 2px solid rgb(180,195,200);
+      }
+
+      th:last-child {
+        border-right: 2px solid rgb(180,195,200);
+      }
+    }
+  
+    tbody {
+      tr:last-child {
+        td {
+          border-bottom: 2px solid rgb(180,195,200);        
+        }
+      }
+    
+      td {
+        line-height: 16px;
+        border-right: 1px solid #eee;
+        border-bottom: 1px solid #eee;      
+      }
+    
+      td:first-child {
+        border-left: 2px solid rgb(180,195,200);
+      }
+
+      td:last-child {
+        border-right: 2px solid rgb(180,195,200);
+      }
+    }
+  }
+}

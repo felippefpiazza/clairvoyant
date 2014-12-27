@@ -1,0 +1,31 @@
+body#authentication {
+  background: black;
+  
+  div#container {
+    display: block;
+    position: absolute;
+		overflow: auto;
+    top: 10%;
+    left: 50%;
+    width: 300px;
+    height: auto;
+    margin-left: -150px;
+    
+    padding: 25px;
+    padding-top: 100px;
+    
+    background: #ddd url('/images/logos/grande.png') no-repeat right top;
+
+    @include border-top-radius(10px);
+    @include border-bottom-radius(10px);
+    @include border-left-radius(10px);
+    @include border-right-radius(10px);    
+
+    @include box-shadow(0 0 10px 3px #fff);    
+    
+    .actions {
+      padding-top: 25px;
+      text-align:center;
+    }
+  }
+}

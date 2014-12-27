@@ -1,0 +1,59 @@
+body {
+  .button.gray {
+		@include button(pill, $gray);
+		a {
+		  color: white;
+		}
+  }
+  
+  .button.green {
+		@include button(pill, $green);
+  }
+  
+  .button.red {
+		@include button(pill, $red);
+		
+		a {
+		  color: white;
+		}
+  }
+  
+  .button.blue {
+		@include button(pill, $blue);
+		a {
+		  color: white;
+		}
+  }
+
+  .button.inline {
+    margin: 0.2em 0.5em;	  
+  }
+  
+  .button.button-big {
+    font-size: 12pt;
+  }
+  
+  .button {
+    text-shadow: white 1px 1px 0px;
+    vertical-align: top;
+    margin-right: 5px;
+    margin-left: 5px;    
+    
+    .ss_sprite {
+      display: block;
+      height: 17px;
+      float: left;
+      margin-right: 5px;
+    }           
+
+    .ui-button-text {
+      font-size: 10pt;
+      padding: 0px 5px;
+      line-height: 15px;
+    }  
+  }
+
+  .button.button-small {
+	  padding: 0px 5px;
+  }  
+}

@@ -1,0 +1,25 @@
+= form_for @resource, :as => 'form', url: admin_clairvoyant_save_path , method: 'post' do |f|
+	- if @resource != nil and @resource.id != nil
+		= f.hidden_field :id, value: @resource.id
+		
+	%h3 Cadastro de Clairvoyant
+	%table{width: "80%"}
+		%tr
+			%td{width: "50%"}
+				.field    
+					= f.label :serial, 'serial'    
+					= f.text_field :serial, value: @resource.serial
+				.field    
+					= f.label :equipment, 'Equipamento'    
+					= f.text_field :equipment, value: @resource.equipment
+
+				.field    
+					= f.label :client_id, 'Cliente'    
+					= f.collection_select(:client_id,  Client.all, :id, :first_name, :prompt => "Escolha um cliente")	
+
+				.field    
+					= f.label :obs, 'Obs'    
+					= f.text_area :obs, value: @resource.obs
+				%td
+	.actions    
+		= submit_tag "Salvar", class: 'button button-big blue'

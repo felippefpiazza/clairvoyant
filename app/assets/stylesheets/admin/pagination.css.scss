@@ -1,0 +1,36 @@
+body#admin {
+  .pagination {
+    display: block;
+    
+    margin-top: 15px;
+    
+    a {
+      font-size: 12pt;
+      color: $blue;        
+      text-decoration: none;
+      span {
+        font-size: 12pt;
+        color: $blue;        
+        text-decoration: none;
+      }
+    }
+    
+    span.previous_page, span.next_page, em.current {
+      font-size: 12pt;
+      color: black;
+
+      span {
+        font-size: 12pt;
+        color: black;
+      }
+    }
+    
+    span.previous_page, span.next_page {
+      display: none;
+    }
+    
+    a:hover {
+      text-decoration: underline;
+    }
+  }		
+}

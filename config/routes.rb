@@ -1,6 +1,44 @@
 Rails.application.routes.draw do
   
   #resources :people
+  namespace :admin do
+    
+    get '/' => 'user#login'
+    get 'user/login' => 'user#login'
+    get 'user/index' => 'user#index'
+    post 'user/index' => 'user#index'
+    get 'user/new' => 'user#new'
+    post 'user/save' => 'user#save'
+    get 'user/delete' => 'user#destroy'
+    get 'user/:id' => 'user#show'
+
+    get 'client/login' => 'client#login'
+    get 'client/index' => 'client#index'
+    post 'client/index' => 'client#index'
+    get 'client/new' => 'client#new'
+    post 'client/save' => 'client#save'
+    get 'client/delete' => 'client#destroy'
+    get 'client/:id' => 'client#show'
+
+    get 'clairvoyant/login' => 'clairvoyant#login'
+    get 'clairvoyant/index' => 'clairvoyant#index'
+    post 'clairvoyant/index' => 'clairvoyant#index'
+    get 'clairvoyant/new' => 'clairvoyant#new'
+    post 'clairvoyant/save' => 'clairvoyant#save'
+    get 'clairvoyant/delete' => 'clairvoyant#destroy'
+    get 'clairvoyant/:id' => 'clairvoyant#show'
+
+    get 'device/login' => 'device#login'
+    get 'device/index' => 'device#index'
+    post 'device/index' => 'device#index'
+    get 'device/new' => 'device#new'
+    post 'device/save' => 'device#save'
+    get 'device/delete' => 'device#destroy'
+    get 'device/:id' => 'device#show'
+    
+    get 'dashboard/index' => 'dashboard#index'
+  end 
+  
   namespace :api do
     resource :user, :default => {:format => 'xml'}
     get 'user/auth' => 'user#auth', :default => {:format => 'xml'}
@@ -16,7 +54,7 @@ Rails.application.routes.draw do
     get 'destroy_all' => 'device#destroy_all', :default => {:format => 'xml'}    
     post 'get_address' => 'address#get_address', :default => {:format => 'xml'}
     post 'get_user' => 'user#get_user', :default => {:format => 'xml'}
-
+    get 'all_clairvoyants' => 'clairvoyant#all_clairvoyants', :default => {:format => 'xml'}
   end  
   #resource :user, :default => {:format => 'xml'}
   #get 'user/' => 'user#index'

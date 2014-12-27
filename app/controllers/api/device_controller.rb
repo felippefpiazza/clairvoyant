@@ -1,4 +1,4 @@
-class Api::DeviceController < ApplicationController
+class Api::DeviceController < Api::ApplicationController
   before_filter :restrict_access , :except => [ :destroy_all ]
 
   def create_device
@@ -28,24 +28,30 @@ end
     param_return = []
     if p != nil
       p.each do |parameter|
-        dp = device.setparams(parameter["Parameter_Index"],parameter["Display_Value"])
-        param_return << dp.as_json(include: :parameter)
+        dp = device.setvalues(parameter["Parameter_Index"],parameter["Display_Value"])
+        dp.each do |d|
+          param_return << d.as_json(include: :parameter)
+        end
       end
     end
     
     fault_return = []
     if f != nil
       f.each do |fault|      
-        df = device.setfaults(fault["Fault_Index"],fault["Display_Value"])
-        fault_return << df.as_json(include: :fault)
+        df = device.setvalues(fault["Fault_Index"],fault["Display_Value"])
+        df.each do |d|
+          fault_return << d.as_json(include: :parameter)
+        end
       end
     end
     
     deviceinfo_return = []
     if i != nil
       i.each do |deviceinfo|      
-        di = device.setdeviceinfos(deviceinfo["DeviceInfo_Index"],deviceinfo["Display_Value"])
-        deviceinfo_return << di.as_json(include: :deviceinfo)
+        di = device.setvalues(deviceinfo["DeviceInfo_Index"],deviceinfo["Display_Value"])
+        di.each do |d|
+          deviceinfo_return << d.as_json(include: :parameter)
+        end
       end
     end  
     

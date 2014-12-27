@@ -1,0 +1,20 @@
+= form_for @resource, :as => 'form', url: admin_device_save_path , method: 'post' do |f|
+	- if @resource != nil and @resource.id != nil
+		= f.hidden_field :id, value: @resource.id
+		
+	%h3 Cadastro de Controle
+	%table{width: "80%"}
+		%tr
+			%td{width: "50%"}
+				.field    
+					= f.label :serial, 'serial'    
+					= f.text_field :serial, value: @resource.serial
+				.field    
+					= f.label :device_name, 'Controle'    
+					= f.text_field :device_name, value: @resource.device_name
+				.field    
+					= f.label :obs, 'Obs'    
+					= f.text_area :obs, value: @resource.obs
+				%td
+	.actions    
+		= submit_tag "Salvar", class: 'button button-big blue'

@@ -1,0 +1,117 @@
+body#admin {  
+  #menubar {
+    z-index: 99;
+    clear: both;
+    display: block;
+    height: 28px;
+    padding-left: 16px;
+    padding-right: 20px;
+    
+    .menu {
+      z-index: 99;
+      margin-top: 7px;
+      display: inline-block;
+      float: left;
+      height: 20px;
+      line-height: 20px;
+      font-size: 10pt;
+      font-weight: bold;
+      text-align: center;
+      margin-left: 5px;
+      width: 120px;
+      border-top: 1px solid transparent;
+      border-right: 1px solid transparent;
+      border-left: 1px solid transparent;
+
+      -moz-border-radius: 10px 10px 0 0;
+      -webkit-border-radius: 10px 10px 0 0;
+      
+      a {
+        padding-left: 10px;
+        padding-right: 10px;
+        font-size: inherit;
+        
+        &:hover {
+          text-decoration: none;
+        }
+      }
+      
+      .submenu {
+        z-index: 99;
+        display: none;
+        float: left;
+        width: 120px;
+        margin-left: -1px;
+        line-height: 20px;
+        font-size: 8pt;
+        font-weight: bold;
+        background-color: white;
+        border-right: 1px solid $gray;
+        border-left: 1px solid $gray;
+        border-top: 1px solid $gray;
+      }
+      
+      .submenu.disabled {
+        a {
+          color: #ccc;
+        }
+      }
+      
+      .submenu:last-child {
+        -moz-border-radius: 0 0 10px 10px;
+        -webkit-border-radius: 0 0 10px 10px;        
+        border-bottom: 1px solid $gray;
+      }
+    }
+    
+    .menu:last-child {
+      float: right;
+    }
+    
+    .menu:hover, .menu.active {
+      border-top: 1px solid $gray;
+      border-right: 1px solid $gray;
+      border-left: 1px solid $gray;
+      border-bottom: 1px solid white;
+      background-color: white;
+      
+      a { color: black };
+      
+      .submenu:hover {
+        background-color: #eee;
+      }
+    }  
+    
+    .menu:hover {
+      .submenu {
+        display: block;
+      }
+    } 
+  }
+  
+  #menubar.green {
+    background-color: $green;
+  }
+  
+  #menubar.blue {
+    background-color: $blue;
+    a { color: white };
+  }
+  
+  #menubar.purple {
+    background-color: $purple;
+    a { color: white };
+  }
+  
+  #menubar.orange {
+    background-color: $orange;
+  }
+  
+  #menubar.yellow {
+    background-color: $yellow;
+  }
+  
+  #menubar.gray {
+    background-color: $gray;
+  }   
+}

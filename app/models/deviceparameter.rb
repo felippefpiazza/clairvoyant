@@ -1,6 +1,3 @@
-class Deviceparameter < ActiveRecord::Base
-  has_paper_trail  
-  belongs_to  :device
-  belongs_to  :parameter
+class Deviceparameter < Devicevalue
 
 end

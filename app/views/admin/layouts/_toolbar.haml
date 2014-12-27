@@ -1,0 +1,20 @@
+#toolbar
+  .header
+    = image_tag '/images/logos/paletrans.png', height: 30
+    .session
+      %span{ :class => session[:color] } Clairvoyant
+      %span.gray
+      
+  #menubar{ :class => session[:color] }
+    %div{ :class => "menu #{@current_tab == 'Dashboard' ? 'active' : ''}" }
+      = link_to "Dashboards"
+      .submenu= link_to "20x20", "javascript:alert('link inativo');"
+      .submenu= link_to "Histórico de Falhas", "javascript:alert('link inativo');"
+
+
+    %div{ :class => "menu #{@current_tab == 'cadastros' ? 'active' : ''}" }
+      = link_to "Cadastros"
+      .submenu= link_to "Usuários", admin_user_index_path
+      .submenu= link_to "Clientes", admin_client_index_path
+      .submenu= link_to "Clairvoyants", admin_clairvoyant_index_path
+      .submenu= link_to "Controles", admin_device_index_path

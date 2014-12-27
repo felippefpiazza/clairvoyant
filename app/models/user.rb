@@ -1,5 +1,5 @@
 class User < Person
-  #attr_accessible :first_name, :last_name, :email, :password
+  #attr_accessible :username, :first_name, :middle_name, :last_name, :password
   has_many :api_key
   validates :first_name, :presence => {message: 'First name is required'}
   validates_uniqueness_of :email , :message => 'E-mail already in use'

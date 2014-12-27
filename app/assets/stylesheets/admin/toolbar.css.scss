@@ -1,0 +1,69 @@
+body#admin {  
+  #toolbar {
+    position: relative;
+    z-index: 99;
+    background-color: #eee;
+    display: block;
+    border-bottom: 2px solid $gray;
+    height: 69px;
+    
+    .header {
+      display: block;
+      height: 40px;
+      font-size: 19pt;
+      line-height: 40px;
+      padding-left: 20px;
+      padding-right: 20px;
+      
+      .company, .company span {
+        font-size: inherit;
+        display: inline-block;
+      }
+    
+      .session {
+        display: inline-block;
+        float: right;
+        text-align: right;
+        width: 150px;
+      
+        .avatar {   
+          display: inline-block;  
+          float: right;
+          overflow: hidden;
+          @include border-top-radius(4px);
+          @include border-bottom-radius(4px);
+          @include border-left-radius(4px);
+          @include border-right-radius(4px);    
+          padding-top: 4px;
+        
+          img {
+            float: left;          
+            max-width: 32px;
+            max-height: 32px;
+          }
+        }  
+      
+        .links {
+          display: inline-block;  
+          float: right;
+          padding: 5px;
+          margin-right: 10px;
+          line-height: 15px;
+        
+          .user a {
+            color: $gray;
+            font-size: 15pt;
+          }        
+        
+          .logout a {
+            color: $gray;          
+          }
+        }    
+      }
+    }    
+  }
+  
+  #menubar {
+    display: block;
+  }
+}
