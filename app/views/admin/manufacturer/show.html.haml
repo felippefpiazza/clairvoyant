@@ -1,0 +1,17 @@
+= form_for @resource, :as => 'form', url: admin_manufacturer_save_path , method: 'post' do |f|
+	- if @resource != nil and @resource.id != nil
+		= f.hidden_field :id, value: @resource.id
+		
+	%h3 Cadastro de Fabricante
+	%table{width: "80%"}
+		%tr
+			%td{width: "50%"}
+				.field    
+					= f.label :first_name, 'Nome'    
+					= f.text_field :first_name, value: @resource.first_name
+				.field    
+					= f.label :nickname, 'Nome Fantasia'    
+					= f.text_field :nickname, value: @resource.nickname
+				%td
+	.actions    
+		= submit_tag "Salvar", class: 'button button-big blue'

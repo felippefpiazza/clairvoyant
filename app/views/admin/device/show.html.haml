@@ -10,8 +10,11 @@
 					= f.label :serial, 'serial'    
 					= f.text_field :serial, value: @resource.serial
 				.field    
-					= f.label :device_name, 'Controle'    
+					= f.label :device_name, 'Controlador'    
 					= f.text_field :device_name, value: @resource.device_name
+				.field    
+					= f.label :device_manufacturer_identification, 'Nome do Controlador'    
+					= f.text_field :device_manufacturer_identification, value: @resource.device_manufacturer_identification			
 				.field    
 					= f.label :obs, 'Obs'    
 					= f.text_area :obs, value: @resource.obs

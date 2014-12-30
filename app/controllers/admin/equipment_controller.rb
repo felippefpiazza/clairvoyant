@@ -1,15 +1,14 @@
-class Admin::ClairvoyantController < Admin::ApplicationController
-
+class Admin::EquipmentController < Admin::ApplicationController
 
   def new
-    @resource = Clairvoyant.new()
+    @resource = Equipment.new()
     render "show"
   end
   
   def save
     if params[:form][:id] != nil
       
-      @resource = Clairvoyant.where(id: params[:form][:id]).first
+      @resource = Equipment.where(id: params[:form][:id]).first
       if @resource.update(form_params)
         redirect_to :action => "show", :id => @resource.id, notice: "O registro foi criado com sucesso"
       else
@@ -18,7 +17,7 @@ class Admin::ClairvoyantController < Admin::ApplicationController
       
     else
 
-      if @resource = Clairvoyant.create(form_params)
+      if @resource = Equipment.create(form_params)
         redirect_to :action => "show", :id => @resource.id, notice: "O registro foi criado com sucesso"
       else
         flash.now.alert = "Ocorreu um erro ao criar o registro, por favor tente novamente."
@@ -29,13 +28,13 @@ class Admin::ClairvoyantController < Admin::ApplicationController
   end
 
   def show
-    @resource = Clairvoyant.where(id: params[:id]).first
+    @resource = Equipment.where(id: params[:id]).first
 
   end
   
   def index
     if params[:busca] != nil
-      @resources = Clairvoyant.where("serial like :v or identification like :v" , v: "%" + params[:busca] + "%")
+      @resources = Equipment.where("name like :v" , v: "%" + params[:busca] + "%")
     else
       @resources = {}
     end
@@ -43,7 +42,7 @@ class Admin::ClairvoyantController < Admin::ApplicationController
   
   private
   def form_params
-    params.require(:form).permit(:serial, :identification, :equipment_id, :client_id, :obs )
+    params.require(:form).permit(:name, :manufacturer_id)
   end
-  
+
 end

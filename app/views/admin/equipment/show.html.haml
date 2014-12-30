@@ -1,0 +1,18 @@
+= form_for @resource, :as => 'form', url: admin_equipment_save_path , method: 'post' do |f|
+	- if @resource != nil and @resource.id != nil
+		= f.hidden_field :id, value: @resource.id
+		
+	%h3 Cadastro de Equipamento
+	%table{width: "80%"}
+		%tr
+			%td{width: "50%"}
+				.field    
+					= f.label :name, 'Nome'    
+					= f.text_field :name, value: @resource.name
+
+				.field    
+					= f.label :manufacturer_id, 'Fabricante'    
+					= f.collection_select(:manufacturer_id,  Manufacturer.all, :id, :nickname, :prompt => "Escolha um fabricante")	
+				%td
+	.actions    
+		= submit_tag "Salvar", class: 'button button-big blue'

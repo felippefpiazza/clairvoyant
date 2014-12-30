@@ -10,12 +10,16 @@
 					= f.label :serial, 'serial'    
 					= f.text_field :serial, value: @resource.serial
 				.field    
-					= f.label :equipment, 'Equipamento'    
-					= f.text_field :equipment, value: @resource.equipment
+					= f.label :identification, 'Identificador'    
+					= f.text_field :identification, value: @resource.identification
 
 				.field    
 					= f.label :client_id, 'Cliente'    
 					= f.collection_select(:client_id,  Client.all, :id, :first_name, :prompt => "Escolha um cliente")	
+
+				.field    
+					= f.label :equipment_id, 'Equipamento'    
+					= f.collection_select(:equipment_id,  Equipment.all, :id, :name, :prompt => "Escolha um equipamento")
 
 				.field    
 					= f.label :obs, 'Obs'    

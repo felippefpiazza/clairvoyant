@@ -1,0 +1,25 @@
+%div.central
+	%table.fixed{:width => "560px"}
+		%thead
+			%tr
+				%th.fixed{:colspan => '{{clairvoyant_devices.devices.length}}'}
+					{{clairvoyant_devices.clairvoyant.identification}}
+		%tbody
+			%tr
+				%td.fixed{"ng-repeat" => "dev in clairvoyant_devices.devices"	}
+					%div{:class => "invalid-{{dev.has_fault}}"}
+						{{dev.device.device_name}}
+						{{dev.device.device_manufacturer_identification}}
+						%p
+						%div.fixed
+							Informações
+							%p.parameters{"ng-repeat" => "info in dev.d_infos"}
+								{{info.name}} --> {{info.value}}
+						%div.fixed
+							Parametros
+							%p.parameters{"ng-repeat" => "param in dev.d_params"}
+								{{param.name}} --> {{param.value}}
+						%div.fixed
+							Falhas
+							%p.parameters{"ng-repeat" => "fault in dev.d_faults"}
+								{{fault.name}}

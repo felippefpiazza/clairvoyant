@@ -4,6 +4,15 @@ class Device < ActiveRecord::Base
   has_many  :deviceparameters
   has_many  :devicefaults
   has_many  :deviceinfos
+  has_many  :faulthistories
+
+  def has_fault?
+    if self.devicefaults.where(value: 1).length > 0
+      return true
+    else
+      return false
+    end
+  end
 
   def setvalues(param,value)
     p = Parameter.where(:cob_id => param)
@@ -35,14 +44,27 @@ class Device < ActiveRecord::Base
 
   def  setvalue(param, value, value_hexa)
     resource = "Device".concat(param.type_param.downcase).constantize
-  
     if resource.exists?(:device => self , :parameter => param)
       dv = resource.where(:device => self , :parameter => param).first
+      if param.type_param.downcase == "fault" and dv.value != value.to_i
+        if value.to_i == 1
+          Faulthistory.create(:device => self, :active => true, :description => dv.parameter.display_name, :parameter => dv.parameter)
+        else
+          fh = Faulthistory.where(:device => self, :active => true, :parameter_id => dv.parameter.id).first
+          if fh != nil
+            fh.active = false;
+            fh.save
+          end
+        end
+      end
       dv.value = value
       dv.value_hexa = value_hexa
       dv.save
     else
       dv = resource.create(:device => self, :parameter => param, :value => value, :value_hexa => value_hexa)
+      if param.type_param.downcase == "fault" and value.to_i == 1
+        Faulthistory.create(:device => self, :active => true, :description => dv.parameter.display_name, :parameter => dv.parameter)      
+      end
     end
     return dv
   end

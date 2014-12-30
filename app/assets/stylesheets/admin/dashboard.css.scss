@@ -1,3 +1,147 @@
-// Place all the styles related to the admin/dashboard controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+	.css-class, .css-class-add, .css-class-remove {
+	-webkit-transition:all cubic-bezier(0.250, 0.250, 0.250, 0.250) 0.5s;
+	-moz-transition:all cubic-bezier(0.250, 0.250, 0.250, 0.250) 0.5s;
+	-o-transition:all cubic-bezier(0.250, 0.250, 0.250, 0.250) 0.5s;
+	transition:all cubic-bezier(0.250, 0.250, 0.250, 0.250) 0.5s;
+}
+
+.css-class,
+.css-class-add.css-class-add-active {
+	position: fixed;
+	left: 50%;
+	bottom:0;
+	height: 80%;
+	width: 600px;
+	transform: translate(-50%, -10%);	
+	z-index: 10;
+	background-color: rgba(255,255,255,0.85);
+	border: 2px solid black;
+  border-radius: 15px;
+	box-shadow: 10px 10px 5px #888888;
+}
+
+.css-class.ng-hide,
+.css-class-remove.css-class-remove-active {
+	position: fixed;
+	left: 50%;
+	bottom:0;
+	height: 0%;
+	width: 600px;	
+	transform: translate(-50%, -0%);
+	z-index: 10;
+	background-color: rgba(0,0,0,0);
+	border: 2px solid black;
+  border-radius: 15px;	
+	box-shadow: 10px 10px 5px #888888;
+}
+
+p.parameters{
+	font-size: 0.5em;
+}
+
+div.central{
+	transform: translate(20px, 10px);
+}
+
+div.fixed {
+	display: inline-block;
+	width:	100%;
+ 	overflow: scroll;
+	height: 150px;
+}
+
+div.invalid-true {
+	background-color: #CC3333;
+	padding-left: 25px;
+	padding-right: 25px;
+	padding-bottom: 25px;
+	padding-top: 25px;	
+  border-radius: 15px;
+}
+
+div.invalid-false {
+	background-color: #33CCCC;
+	padding-left: 25px;
+	padding-right: 25px;
+	padding-bottom: 25px;
+	padding-top: 25px;	
+  border-radius: 15px;
+}
+
+table.fixed {
+ 	overflow: overlay;
+	border-collapse: collapse; 
+	vertical-align: top;
+	
+	td.fixed {
+		padding-left: 10px;
+		padding-right: 10px;
+		padding-bottom: 10px;
+		padding-top: 10px;
+	}
+
+}
+
+.responsive_div {
+	div.blocks {
+		display:inline-block;
+		margin:10px;
+
+	}
+	div.bordered {
+		border-bottom:2px solid;
+	}	
+	
+	table.invalid-true {
+		background-color: #CC3333;
+	}
+ 
+	
+	.blocks_table {
+
+		table.block { 
+			border-collapse: collapse; 
+			table-layout:fixed;
+			overflow: hidden;    
+
+		  thead {
+		    th.block {
+		      font-weight: bold;
+		      background-color: #eee;
+		      line-height: 16px;
+		      border-right: 1px solid white;
+		      border-top: 2px solid rgb(180,195,200);          
+		    }
+
+		    th.block:first-child {
+		      border-left: 2px solid rgb(180,195,200);
+		    }
+
+		    th.block:last-child {
+		      border-right: 2px solid rgb(180,195,200);
+		    }
+		  }
+
+		  tbody {
+
+
+		    td.block {
+		      line-height: 16px;
+		      text-align: center;
+		      border-right: 2px solid rgb(180,195,200);
+		      border-bottom: 2px solid rgb(180,195,200);
+		    }
+
+		    td.block:first-child {
+		      border-left: 2px solid rgb(180,195,200);
+		       text-align: center;		
+		    }
+
+		    td.block:last-child {
+		      border-right: 2px solid rgb(180,195,200);
+		       text-align: center;		
+		   	}
+		  }
+		}
+	}	
+}

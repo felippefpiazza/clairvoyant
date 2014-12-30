@@ -14,9 +14,11 @@
 						%th
 							Serial
 						%th
-							Equipamento
+							Identificador
 						%th
-							Client
+							Equipamento							
+						%th
+							Cliente
 						%th
 							Ativo?
 						%th
@@ -27,7 +29,9 @@
 						%td
 							= r.serial
 						%td
-							= r.equipment
+							= r.identification
+						%td
+							= r.equipment ? r.equipment.name : "S/ Equipamento Cadastrado"
 						%td
 							= r.client ? r.client.first_name : "S/ Cliente Cadastrado"
 						%td

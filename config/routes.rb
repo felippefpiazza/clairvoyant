@@ -35,8 +35,25 @@ Rails.application.routes.draw do
     post 'device/save' => 'device#save'
     get 'device/delete' => 'device#destroy'
     get 'device/:id' => 'device#show'
+
+    get 'equipment/login' => 'equipment#login'
+    get 'equipment/index' => 'equipment#index'
+    post 'equipment/index' => 'equipment#index'
+    get 'equipment/new' => 'equipment#new'
+    post 'equipment/save' => 'equipment#save'
+    get 'equipment/delete' => 'equipment#destroy'
+    get 'equipment/:id' => 'equipment#show'
+
+    get 'manufacturer/login' => 'manufacturer#login'
+    get 'manufacturer/index' => 'manufacturer#index'
+    post 'manufacturer/index' => 'manufacturer#index'
+    get 'manufacturer/new' => 'manufacturer#new'
+    post 'manufacturer/save' => 'manufacturer#save'
+    get 'manufacturer/delete' => 'manufacturer#destroy'
+    get 'manufacturer/:id' => 'manufacturer#show'
     
     get 'dashboard/index' => 'dashboard#index'
+    
   end 
   
   namespace :api do
@@ -55,6 +72,9 @@ Rails.application.routes.draw do
     post 'get_address' => 'address#get_address', :default => {:format => 'xml'}
     post 'get_user' => 'user#get_user', :default => {:format => 'xml'}
     get 'all_clairvoyants' => 'clairvoyant#all_clairvoyants', :default => {:format => 'xml'}
+    post 'all_clairvoyants' => 'clairvoyant#all_clairvoyants', :default => {:format => 'xml'}    
+    post 'clairvoyant_devices' => 'clairvoyant#clairvoyant_devices', :default => {:format => 'xml'}
+    get 'clairvoyant_devices' => 'clairvoyant#clairvoyant_devices', :default => {:format => 'xml'}  
   end  
   #resource :user, :default => {:format => 'xml'}
   #get 'user/' => 'user#index'

@@ -43,6 +43,6 @@ class Admin::DeviceController< Admin::ApplicationController
  
  private
  def form_params
-   params.require(:form).permit(:serial, :device_name, :obs )
+   params.require(:form).permit(:serial, :device_name, :obs, :device_manufacturer_identification )
  end
 end

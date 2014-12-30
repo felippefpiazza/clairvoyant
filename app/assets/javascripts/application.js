@@ -11,6 +11,8 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require angular
+//= require angular-animate
+//= require angular-resource
 //= require turbolinks
 //= require_tree .
 

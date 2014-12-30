@@ -1,36 +1,56 @@
-angular.module('RefreshDashboard', [])
-	.controller('DashboardController', ['$scope', '$http', function($scope, $http) { $http.get("http://172.16.49.100:3000/api/all_clairvoyants.json")
-    .success(function(response) {$scope.clairvoyants = response;});
+angular.module('RefreshDashboard', ['ngAnimate'])
+	.controller('DashboardController', ['$scope', '$http', '$timeout', function($scope, $http, $timeout) {
+		
+		$scope.getClairvoyantData = function() {
+			$http.post("/api/all_clairvoyants.json", {serial: $scope.search_serial, client_id:$scope.search_client_id })
+    			.success(function(response) {
+					$scope.clairvoyants = response;
+				});
+		};
+		
+		$scope.getDeviceData = function(clairvoyant_id) {
+			$http.post("/api/clairvoyant_devices.json", {clairvoyant_id:clairvoyant_id })
+    			.success(function(response) {
+					$scope.clairvoyant_devices = response;
+				});
+		};		
 		
 		$scope.addClairvoyant = function() {
-			$scope.clairvoyants.push({text:$scope.ClairvoyantName, serial:$scope.ClairvoyantSerial, parameters: {}});
+			$scope.clairvoyants.push({equipment:$scope.ClairvoyantName, serial_hex:$scope.ClairvoyantSerial, parameters: {}});
 			$scope.ClairvoyantName = '';
 			$scope.ClairvoyantSerial = '';
 		};
 		
-		
-		
-		}]);
-	
-	
-function getClairvoyants($scope,$http) {
-    $http.get("http://172.16.49.100:3000/api/all_clairvoyants.json")
-    .success(function(response) {$scope.clairvoyants = response;});
-}
+		$scope.searchClairvoyant = function() {
+			$scope.search_client_id = $scope.SearchClient;
+			$scope.search_serial = $scope.SearchSerial;
+			$scope.getClairvoyantData();
+		};
 
-getClairvoyants	
-/*	
-		$http.get("http://172.16.49.100:3000/api/all_clairvoyants.json").success(function(data, status, headers, config) {
-		      $scope.clairvoyants = data;
-		    });	
+		$scope.intervalFunction = function(){
+		    $timeout(function() {
+		      $scope.getClairvoyantData();
+		      $scope.intervalFunction();
+		    }, 3000000)
+		  };
 
-$scope.clairvoyants = [
-	{equipment:'Clairvoyant #1', serial_hexa:'0x00000001', parameters: [['param1','1'],['param2','2']]},
-	{equipment:'Clairvoyant #2', serial_hexa:'0x00000002', parameters: [['other1','6'],['other2','7']]},
-	{equipment:'Clairvoyant #3', serial_hexa:'0x00000003', parameters: [['other1','6'],['other2','7']]},
-	{equipment:'Clairvoyant #4', serial_hexa:'0x00000004', parameters: [['other1','6'],['other2','7']]},
-	{equipment:'Clairvoyant #5', serial_hexa:'0x00000005', parameters: [['other1','6'],['other2','7']]},
-	{equipment:'Clairvoyant #6', serial_hexa:'0x00000006', parameters: [['other1','6'],['other2','7']]},		
-	{equipment:'Clairvoyant #7', serial_hexa:'0x00000007', parameters: [['other1','6'],['other2','7']]}
-	];
-*/
+		$scope.toogleClairvoyantDetails = function(clairvoyant_id){
+			if ($scope.clairvoyant_details) {
+				$scope.clairvoyant_details=false;
+			} else {
+				$scope.getDeviceData(clairvoyant_id)
+				$scope.clairvoyant_details=true;
+			}
+		}
+
+		$scope.clairvoyants = []
+		$scope.clairvoyants_devices = {"clairvoyant": {}, "devices": []}
+		$scope.search_client_id = "";
+		$scope.search_serial = "";
+		$scope.getClairvoyantData();
+		$scope.intervalFunction();
+		
+
+	}]);
+
+

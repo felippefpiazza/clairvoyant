@@ -8,13 +8,15 @@
   #menubar{ :class => session[:color] }
     %div{ :class => "menu #{@current_tab == 'Dashboard' ? 'active' : ''}" }
       = link_to "Dashboards"
-      .submenu= link_to "20x20", "javascript:alert('link inativo');"
+      .submenu= link_to "20x20", admin_dashboard_index_path
       .submenu= link_to "Histórico de Falhas", "javascript:alert('link inativo');"
 
 
     %div{ :class => "menu #{@current_tab == 'cadastros' ? 'active' : ''}" }
       = link_to "Cadastros"
       .submenu= link_to "Usuários", admin_user_index_path
+      .submenu= link_to "Fabricante", admin_manufacturer_index_path
+      .submenu= link_to "Equipamento", admin_equipment_index_path
       .submenu= link_to "Clientes", admin_client_index_path
       .submenu= link_to "Clairvoyants", admin_clairvoyant_index_path
-      .submenu= link_to "Controles", admin_device_index_path
+      .submenu= link_to "Controladores", admin_device_index_path

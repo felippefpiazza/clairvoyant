@@ -1,0 +1,37 @@
+%div{"ng-app" => "RefreshDashboard"}			
+	%div{"ng-controller" => "DashboardController"}
+		%form{"ng-submit" => "searchClairvoyant()"}
+			= collection_select("search", :client_id,  Client.all, :id, :first_name , {:prompt => "Escolha um cliente"} , {"ng-model" => "SearchClient" })	
+			%input{ :type => "text", "ng-model" => "SearchSerial", :placeholder => "Enter a name here"}			
+			%input{:class => "btn-primary", :type => "submit", :value => "Filtrar"}
+			%br
+			
+		.responsive_div
+			%div.blocks{:type => "none", "ng-repeat" => "module in clairvoyants"}
+				.blocks_table{"ng-click"=>"toogleClairvoyantDetails(module.clairvoyant.id)"}
+					%table.block{width: "200px"}
+						%thead
+							%tr.block{height: "30px"}
+								%th.block{:colspan => '{{module.devices.length}}'}
+									{{module.clairvoyant.identification}}							
+						%tr.block{height: "30px"}
+							%td.block{:colspan => '{{module.devices.length}}'}
+								{{module.clairvoyant.serial_hex}}
+						%tr.block{height: "30px"}
+							%td.block{:colspan => '{{module.devices.length}}'}
+								{{module.equipment.name}}
+						%tr.block{height: "60px"}
+							%td.block{"ng-repeat" => "dev in module.devices"}
+								%table.block{:class => 'invalid-{{dev.has_fault}}',  :width => "100%"}
+									%tr.block{:height => "30px"}
+										%td{:height => "30px"}
+											{{dev.device.device_name}}
+									%tr.block{:height => "30px"}
+										%td{:height => "30px"}
+											{{dev.device.device_manufacturer_identification}}
+									
+		%div{:class => "check-element css-class", "ng-show" => "clairvoyant_details"}
+			%button{"ng-click"=>"toogleClairvoyantDetails()", :style => "float:right; margin-right: 30px;margin-top: 10px;"}
+				Fechar
+			%br
+			= render "devicesparams"									

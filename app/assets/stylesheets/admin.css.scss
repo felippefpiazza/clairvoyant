@@ -10,9 +10,10 @@
 @import 'admin/main';
 @import 'admin/pagination';
 @import 'admin/status';
+@import 'admin/dashboard';
 
 body#admin {
-  min-width: 1024px;    
+   
   background: #fff;
   
   a:hover {

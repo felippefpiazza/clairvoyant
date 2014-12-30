@@ -19,3 +19,4 @@
 #Inflector.inflections do |inflection| 
 #  inflection.irregular "person", "people"
 #end
+
