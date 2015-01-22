@@ -1,0 +1,66 @@
+%button{"ng-click"=>"closeControllerDetails()", :style => "float:right; margin-right: 30px;margin-top: 10px;"}
+	Fechar
+%br
+%div.central{:width => "500px"}
+	%table.fixed{:width => "100%"}
+		%thead
+			%tr
+				%th.fixed{:colspan => '{{clairvoyant_devices.devices.length}}'}
+					{{clairvoyant_devices.clairvoyant.identification}} / {{controller_data_store.device.device_name}}
+	%div.menu_header{"ng-click"=>"toogleControllerDataMenu('infos')","class" => "menu_{{info_header}}"}
+		Informações
+	%div.menu_header{"ng-click"=>"toogleControllerDataMenu('params')","class" => "menu_{{param_header}}"}
+		Parametros		
+	%div.menu_header{"ng-click"=>"toogleControllerDataMenu('faults')","class" => "menu_{{fault_header}}"}
+		Falhas	
+	%div.menu_header{"ng-click"=>"toogleControllerDataMenu('faultshistory')","class" => "menu_{{faulthistory_header}}"}
+		Histórico de Falhas			
+		
+	%div.controller_params_block
+		%br
+		%table.controller_params{"ng-show" => "info_header"}
+			%tr
+				%th.controller_params
+					Parametro
+				%th.controller_params
+					Valor
+			%tr{"ng-repeat" => "info in controller_data_infos"}
+				%td.controller_params
+					{{info.name}}
+				%td.controller_params
+					{{info.value}}
+					
+		%table.controller_params{"ng-show" => "param_header"}
+			%tr
+				%th.controller_params
+					Parametro
+				%th.controller_params
+					Valor
+			%tr{"ng-repeat" => "param in controller_data_params"}
+				%td.controller_params
+					{{param.name}}
+				%td.controller_params
+					{{param.value}}		
+		%table.controller_params{"ng-show" => "fault_header"}
+			%tr
+				%th.controller_params
+					Falha
+			%tr{"ng-repeat" => "fault in controller_data_faults"}
+				%td.controller_params
+					{{fault.name}}
+
+		%table.controller_params{"ng-show" => "faulthistory_header"}
+			%tr
+				%th.controller_params
+					Falha
+				%th.controller_params
+					Data Início
+				%th.controller_params
+					Data Fim
+			%tr{"ng-repeat" => "fhist in controller_data_faultshistory"}
+				%td.controller_params
+					{{fhist.name}}
+				%td.controller_params
+					{{fhist.started}}
+				%td.controller_params
+					{{fhist.ended}}					

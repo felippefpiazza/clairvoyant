@@ -75,6 +75,8 @@ Rails.application.routes.draw do
     post 'all_clairvoyants' => 'clairvoyant#all_clairvoyants', :default => {:format => 'xml'}    
     post 'clairvoyant_devices' => 'clairvoyant#clairvoyant_devices', :default => {:format => 'xml'}
     get 'clairvoyant_devices' => 'clairvoyant#clairvoyant_devices', :default => {:format => 'xml'}  
+    post 'controller_data' => 'device#controller_data', :default => {:format => 'xml'}
+    get 'controller_data' => 'device#controller_data', :default => {:format => 'xml'}    
   end  
   #resource :user, :default => {:format => 'xml'}
   #get 'user/' => 'user#index'

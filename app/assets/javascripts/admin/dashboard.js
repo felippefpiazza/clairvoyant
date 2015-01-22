@@ -14,6 +14,60 @@ angular.module('RefreshDashboard', ['ngAnimate'])
 					$scope.clairvoyant_devices = response;
 				});
 		};		
+
+		$scope.getControllerData = function(controller_id) {
+			$http.post("/api/controller_data.json", {device_id: controller_id})
+    			.success(function(response) {
+					$scope.controller_data_store = response;
+					$scope.toogleControllerDataMenu();
+				});
+		};
+		
+		$scope.ClearControllerData = function(){
+			$scope.controller_data_infos = null;
+			$scope.controller_data_params = null;
+			$scope.controller_data_faults = null;
+			$scope.controller_data_faultshistory = null;
+			$scope.info_header = false
+			$scope.param_header = false
+			$scope.fault_header = false
+			$scope.faulthistory_header = false	
+		};
+		
+		$scope.toogleControllerDataMenu = function(menu) {
+			if (!(menu  === undefined || menu === null || menu === "")) {
+				$scope.controller_selected_menu = menu;
+			};
+			
+			$scope.ClearControllerData();
+			switch ($scope.controller_selected_menu) {
+			    case "infos":
+					$scope.controller_selected_menu = "infos";
+					$scope.controller_data_infos = $scope.controller_data_store.d_infos;
+					$scope.info_header = true
+			        break;
+			    case "params":
+					$scope.controller_selected_menu = "params";
+					$scope.controller_data_params = $scope.controller_data_store.d_params;
+					$scope.param_header = true					
+			        break;
+			    case "faults":
+					$scope.controller_selected_menu = "faults";
+					$scope.controller_data_faults = $scope.controller_data_store.d_faults;
+					$scope.fault_header = true				
+			        break;
+			    case "faultshistory":
+					$scope.controller_selected_menu = "faultshistory";
+					$scope.controller_data_faultshistory = $scope.controller_data_store.d_faultshistory;
+					$scope.faulthistory_header = true					
+			        break;			
+			    default:
+			        $scope.controller_data_infos = $scope.controller_data_store.d_infos;
+			};
+		};
+		
+		
+		
 		
 		$scope.addClairvoyant = function() {
 			$scope.clairvoyants.push({equipment:$scope.ClairvoyantName, serial_hex:$scope.ClairvoyantSerial, parameters: {}});
@@ -36,11 +90,21 @@ angular.module('RefreshDashboard', ['ngAnimate'])
 
 		$scope.toogleClairvoyantDetails = function(clairvoyant_id){
 			if ($scope.clairvoyant_details) {
+				$scope.controller_details=false;
 				$scope.clairvoyant_details=false;
 			} else {
 				$scope.getDeviceData(clairvoyant_id)
 				$scope.clairvoyant_details=true;
 			}
+		}
+
+		$scope.openControllerDetails = function(controller_id){
+				$scope.getControllerData(controller_id)
+				$scope.controller_details=true;
+		}
+
+		$scope.closeControllerDetails = function() {
+			$scope.controller_details=false;			
 		}
 
 		$scope.clairvoyants = []
@@ -49,7 +113,7 @@ angular.module('RefreshDashboard', ['ngAnimate'])
 		$scope.search_serial = "";
 		$scope.getClairvoyantData();
 		$scope.intervalFunction();
-		
+		$scope.controller_selected_menu = "infos";
 
 	}]);
 

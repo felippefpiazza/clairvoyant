@@ -1,5 +1,44 @@
 class Api::DeviceController < Api::ApplicationController
-  before_filter :restrict_access , :except => [ :destroy_all ]
+  before_filter :restrict_access , :except => [ :destroy_all, :controller_data ]
+
+  def controller_data
+    
+    if (d = Device.find_by_id(params[:device_id])) != nil
+      d_params = []
+      d_faults = []
+      d_infos = []
+      d_faulthistory = []
+      d.deviceparameters.each do |dp|
+        d_params << {name: dp.parameter.display_name, value: dp.value_normalized}
+      end
+      d.deviceinfos.each do |di|
+        d_infos << {name: di.parameter.display_name, value: di.value_normalized}
+      end
+      has_fault = false
+      d.devicefaults.where(value:  1).each do |df|
+        d_faults << {name: df.parameter.display_name, value: df.value_normalized}
+        has_fault = true
+      end
+      d.faulthistories.each do |dfh|
+        d_faulthistory << {name: dfh.description, started: dfh.created_at.strftime("%d-%m-%Y %H:%M"), ended: dfh.active == 0 ? dfh.updated_at.strftime("%d-%m-%Y %H:%M") : nil}
+
+      end
+        
+      response = {
+                  device: d, 
+                  d_params: d_params, 
+                  d_infos: d_infos, 
+                  d_faults: d_faults, 
+                  has_fault: has_fault, 
+                  d_faultshistory: d_faulthistory
+                  }
+
+      send_response(response)
+    else
+      send_response(nil)
+    end
+    
+  end
 
   def create_device
     serial = params[:serial]

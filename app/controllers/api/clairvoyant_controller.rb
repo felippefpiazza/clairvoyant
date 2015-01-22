@@ -1,6 +1,8 @@
 class Api::ClairvoyantController < Api::ApplicationController
     before_filter :restrict_access , :except => [ :create_clairvoyant , :all_clairvoyants, :clairvoyant_devices]
 
+
+
     def clairvoyant_devices
       c = Clairvoyant.includes([:device]).where(:id => params[:clairvoyant_id]).first
       devices = []

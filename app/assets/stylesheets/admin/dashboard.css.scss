@@ -1,71 +1,131 @@
-	.css-class, .css-class-add, .css-class-remove {
+.controller-params, .controller-params-add, .controller-params-remove{
 	-webkit-transition:all cubic-bezier(0.250, 0.250, 0.250, 0.250) 0.5s;
 	-moz-transition:all cubic-bezier(0.250, 0.250, 0.250, 0.250) 0.5s;
 	-o-transition:all cubic-bezier(0.250, 0.250, 0.250, 0.250) 0.5s;
 	transition:all cubic-bezier(0.250, 0.250, 0.250, 0.250) 0.5s;
 }
 
-.css-class,
-.css-class-add.css-class-add-active {
-	position: fixed;
-	left: 50%;
-	bottom:0;
-	height: 80%;
-	width: 600px;
-	transform: translate(-50%, -10%);	
+.controller-params,
+.controller-params-add.controller-params-add-active {
+	display:inline-block!important;;
+	height: 90%;
 	z-index: 10;
+	width: 560px;
 	background-color: rgba(255,255,255,0.85);
 	border: 2px solid black;
   border-radius: 15px;
-	box-shadow: 10px 10px 5px #888888;
+	box-shadow: 5px 5px 5px #888888;
+	opacity: 1;
 }
 
-.css-class.ng-hide,
-.css-class-remove.css-class-remove-active {
+.controller-params.ng-hide,
+.controller-params-remove.controller-params-remove-active {
+	height: 0px;
+	z-index: 10;
+	width: 0px;
+	background-color: rgba(255,255,255,0.85);
+	border: 2px solid black;
+	border-radius: 15px;
+	box-shadow: 5px 5px 5px #888888;
+	opacity: 0;	
+}
+
+.clairvoyant-general, .clairvoyant-general-add, .clairvoyant-general-remove {
+-webkit-transition:all cubic-bezier(0.250, 0.250, 0.250, 0.250) 0.5s;
+-moz-transition:all cubic-bezier(0.250, 0.250, 0.250, 0.250) 0.5s;
+-o-transition:all cubic-bezier(0.250, 0.250, 0.250, 0.250) 0.5s;
+transition:all cubic-bezier(0.250, 0.250, 0.250, 0.250) 0.5s;
+}
+
+.clairvoyant-general,
+.clairvoyant-general-add.clairvoyant-general-add-active {
+	position: fixed;
+	left: 50%;
+	bottom:0;
+	height: 75%;
+	transform: translate(-50%, -10%);	
+	z-index: 10;
+	width:	1150px;
+}
+
+.clairvoyant-general.ng-hide,
+.clairvoyant-general-remove.clairvoyant-general-remove-active {
 	position: fixed;
 	left: 50%;
 	bottom:0;
 	height: 0%;
-	width: 600px;	
 	transform: translate(-50%, -0%);
 	z-index: 10;
-	background-color: rgba(0,0,0,0);
+	width:	1150px;
+}
+
+.clairvoyant-params {
+	display:inline-block;
+	width: 560px;
+	height: 90%;
+	background-color: rgba(255,255,255,0.85);
 	border: 2px solid black;
-  border-radius: 15px;	
-	box-shadow: 10px 10px 5px #888888;
+  border-radius: 15px;
+	box-shadow: 5px 5px 5px #888888;
+	vertical-align: top;
 }
 
 p.parameters{
 	font-size: 0.5em;
 }
 
+p.parameters_med{
+	font-size: 1em;
+}
+
 div.central{
-	transform: translate(20px, 10px);
+	transform: translate(1px, 1px);
+}
+div.menu_header {
+	display: inline-block;
+	width:	23%;
+	height: 25px;
+	padding-top: 5px;	
+}
+
+div.menu_true {
+	background-color: rgba(150,200,200,1);
+}
+
+div.menu_false {
+	background-color: rgba(100,100,100,1);
+}
+
+div.controller_params_block {
+	display: inline-block;
+ 	overflow: scroll;
+	height: 300px;
+	width:	95%;
 }
 
 div.fixed {
 	display: inline-block;
-	width:	100%;
+	width:	90%;
  	overflow: scroll;
-	height: 150px;
+	height: 80px;
 }
 
 div.invalid-true {
 	background-color: #CC3333;
-	padding-left: 25px;
-	padding-right: 25px;
-	padding-bottom: 25px;
-	padding-top: 25px;	
-  border-radius: 15px;
+	padding-left: 15px;
+	padding-right: 15px;
+	padding-bottom: 15px;
+	padding-top: 15px;	
+  border-radius: 8px;
 }
 
 div.invalid-false {
 	background-color: #33CCCC;
-	padding-left: 25px;
-	padding-right: 25px;
-	padding-bottom: 25px;
-	padding-top: 25px;	
-  border-radius: 15px;
+	padding-left: 15px;
+	padding-right: 15px;
+	padding-bottom: 15px;
+	padding-top: 15px;	
+  border-radius: 8px;
 }
 
 table.fixed {
@@ -81,6 +141,34 @@ table.fixed {
 	}
 
 }
+
+
+table.controller_params {
+	border-collapse: collapse; 
+	table-layout:fixed;
+	width:	100%;
+}
+th.controller_params{
+   font-weight: bold;
+   background-color: #eee;
+   line-height: 16px;
+   border-right: 1px solid rgb(180,195,200);
+   border-left: 1px solid rgb(180,195,200);
+   border-top: 2px solid rgb(180,195,200);	
+   border-bottom: 2px solid rgb(180,195,200);		
+}
+tr.controller_params{
+
+}
+td.controller_params{
+   line-height: 16px;
+   text-align: center;
+   border-right: 1px solid rgb(180,195,200);
+   border-left: 1px solid rgb(180,195,200);
+   border-top: 2px solid rgb(180,195,200);		
+   border-bottom: 2px solid rgb(180,195,200);		
+}
+
 
 .responsive_div {
 	div.blocks {
