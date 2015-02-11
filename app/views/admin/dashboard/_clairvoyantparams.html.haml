@@ -4,7 +4,7 @@
 			%tr
 				%th.fixed{:colspan => '{{clairvoyant_devices.devices.length}}'}
 					{{clairvoyant_devices.clairvoyant.identification}}
-		%tbody
+		%tbody 
 			%tr
 				%td.fixed{"ng-repeat" => "dev in clairvoyant_devices.devices" , "ng-click"=>"openControllerDetails(dev.device.id)"	}
 					%div{:class => "invalid-{{dev.has_fault}}"}

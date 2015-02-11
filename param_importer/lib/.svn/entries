@@ -1,0 +1,53 @@
+8
+
+dir
+15
+http://xlsol.com/sitran/lib/import_detran/lib
+http://xlsol.com/sitran
+
+
+
+2008-07-15T22:15:29.675975Z
+1
+felippe
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+5e50ce30-1752-0410-a943-c7895db78344
+
+file2array.php
+file
+
+
+
+
+2008-07-15T22:17:15.000000Z
+67881ce6a09085a682b61b6b7a3ca293
+2008-07-15T22:15:29.675975Z
+1
+felippe
+
+sql_class.php
+file
+
+
+
+
+2008-07-15T22:17:15.000000Z
+211abf037dc57868d0d079cb48acafa1
+2008-07-15T22:15:29.675975Z
+1
+felippe
+has-props
+

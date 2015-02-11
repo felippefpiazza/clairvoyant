@@ -8,7 +8,8 @@
 			
 		.responsive_div
 			%div.blocks{:type => "none", "ng-repeat" => "module in clairvoyants"}
-				.blocks_table{"ng-click"=>"toogleClairvoyantDetails(module.clairvoyant.id)"}
+				.blocks_table{"ng-click"=>"openControllerDetails(module.clairvoyant.id, module.devices[0].device.id)"}
+				
 					%table.block{width: "200px"}
 						%thead
 							%tr.block{height: "30px"}
@@ -30,12 +31,6 @@
 										%td{:height => "30px"}
 											{{dev.device.device_manufacturer_identification}}
 		
-		%div{:class => "clairvoyant-general", "ng-show" => "clairvoyant_details"}
-			%center
-				%div{:class => "clairvoyant-params"}
-					%button{"ng-click"=>"toogleClairvoyantDetails()", :style => "float:right; margin-right: 30px;margin-top: 10px;"}
-						Fechar
-					%br
-					= render "clairvoyantparams"
-				%div{:class => "controller-params", "ng-show" => "controller_details"}
-					= render "controllerparams"
+
+		%div{:class => "controller-params", "ng-show" => "controller_details"}
+			= render "controllerparams"

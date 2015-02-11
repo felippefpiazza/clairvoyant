@@ -6,6 +6,23 @@ class Device < ActiveRecord::Base
   has_many  :deviceinfos
   has_many  :faulthistories
 
+
+  def process_params(parameters)
+    par_ar = parameters.split(/,/)
+    par_ar.each do |p|
+      if p != ""
+        par = self.decode_canopen_string(p)
+        self.setvalues(par[:index_hex] , par[:data_hex])
+      end
+    end
+  end
+
+  def decode_canopen_string(s)
+    ind_hex = "0x" + s[4..5] + s[2..3] + s[6..7]
+    data_hex = "0x" + s[14..15] + s[12..13] + s[10..11] + s[8..9]
+    result = {index_hex: ind_hex, data_hex: data_hex , data: data_hex.to_i(16)}
+  end
+
   def has_fault?
     if self.devicefaults.where(value: 1).length > 0
       return true
@@ -15,7 +32,7 @@ class Device < ActiveRecord::Base
   end
 
   def setvalues(param,value)
-    p = Parameter.where(:cob_id => param)
+    p = Parameter.where(:cob_id => param, :equipment_id => self.clairvoyant.equipment_id, :node_id => self.node_id) 
     dv_return = []
     
     if p.length > 0
@@ -24,15 +41,19 @@ class Device < ActiveRecord::Base
         value_hexa = value
         value = value.to_i(16)
         value_bin = value.to_s(2).rjust(8, '0')
+        
       else
         value = value
         value_hexa = nil
-        value_bin = nil
       end
       
+      
+
       p.each do |pb|
         if pb.bit_select > -1
-          dv_return << self.setvalue(pb, value_bin[pb.bit_select], value_hexa)
+      
+          dv_return << self.setvalue(pb, value_bin[7 - pb.bit_select], value_hexa)
+
         else
           dv_return << self.setvalue(pb,value,value_hexa)
         end
@@ -68,26 +89,5 @@ class Device < ActiveRecord::Base
     end
     return dv
   end
-
-
-#LIXO!!!!!!!
-  def setfaults_by_name(param,value)
-    if !Parameter.exists?(:name => param)
-      Devicefault.new(:name=> param).save
-    end
-
-    p = Devicefault.where(:name => param).first
-
-    if Devicefault.exists?(:device => self , :fault => p)
-      df = Devicefault.where(:device => self , :fault => p).first
-      df.hexa_value = value
-      df.value= value.to_i(16)
-      df.save
-    else
-      df = Devicefault.create(:device => self, :fault => p, :hexa_value => value, :value => value.to_i(16))
-    end
-
-    return df
-  end 
     
 end

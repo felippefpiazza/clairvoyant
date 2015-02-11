@@ -1,12 +1,23 @@
 %button{"ng-click"=>"closeControllerDetails()", :style => "float:right; margin-right: 30px;margin-top: 10px;"}
-	Fechar
+	Fechar 
 %br
-%div.central{:width => "500px"}
+{{clairvoyant_devices.clairvoyant.identification}} / {{controller_data_store.device.device_name}}
+%br
+%div.central{:width => "1000px"}
+	%div.menu_header{ "ng-repeat" => "dev in clairvoyant_devices.devices" , "ng-click"=>"openControllerDetails(clairvoyant_devices.clairvoyant.id,dev.device.id)"	}
+		%div{:class => "invalid-{{dev.has_fault}}"}
+			{{dev.device.device_name}}
+			{{dev.device.device_manufacturer_identification}}
+
+%br
+%div.central{:width => "1000px"}
 	%table.fixed{:width => "100%"}
 		%thead
 			%tr
 				%th.fixed{:colspan => '{{clairvoyant_devices.devices.length}}'}
-					{{clairvoyant_devices.clairvoyant.identification}} / {{controller_data_store.device.device_name}}
+
+
+
 	%div.menu_header{"ng-click"=>"toogleControllerDataMenu('infos')","class" => "menu_{{info_header}}"}
 		Informações
 	%div.menu_header{"ng-click"=>"toogleControllerDataMenu('params')","class" => "menu_{{param_header}}"}
@@ -32,15 +43,38 @@
 					
 		%table.controller_params{"ng-show" => "param_header"}
 			%tr
-				%th.controller_params
+				%th.controller_params{width: "15%"}
 					Parametro
-				%th.controller_params
+				%th.controller_params{width: "15%"}
 					Valor
+				%th
+				%th.controller_params{width: "15%"}
+					Parametro
+				%th.controller_params{width: "15%"}
+					Valor
+				%th					
+				%th.controller_params{width: "15%"}
+					Parametro
+				%th.controller_params{width: "15%"}
+					Valor										
 			%tr{"ng-repeat" => "param in controller_data_params"}
 				%td.controller_params
-					{{param.name}}
+					{{param.column1.name}}
 				%td.controller_params
-					{{param.value}}		
+					{{param.column1.value}}	
+				%td
+
+				%td.controller_params
+					{{param.column2.name}}
+				%td.controller_params
+					{{param.column2.value}}	
+				%td
+
+				%td.controller_params
+					{{param.column3.name}}
+				%td.controller_params
+					{{param.column3.value}}	
+
 		%table.controller_params{"ng-show" => "fault_header"}
 			%tr
 				%th.controller_params

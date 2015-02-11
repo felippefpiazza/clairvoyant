@@ -1,0 +1,19 @@
+<?php
+
+class file2array {
+
+
+	function read_from($file) {
+		$handle = fopen("$file","r");
+		$this->TEXT = fread($handle,filesize("$file"));
+		fclose($handle);
+	}
+
+
+	function make_array($line_break) {
+		$this->new_array = explode("$line_break","$this->TEXT");
+	}
+}
+
+?>
+

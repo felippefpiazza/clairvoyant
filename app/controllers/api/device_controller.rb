@@ -1,26 +1,61 @@
 class Api::DeviceController < Api::ApplicationController
   before_filter :restrict_access , :except => [ :destroy_all, :controller_data ]
 
+
+  def canopen
+    response =  {:error => {:error => false, :error_msgs => []}}
+    d = Device.where(clairvoyant_id: @clairvoyant.id , node_id: params["Nodeid"]).first
+    if params["Raw"] != ""
+      d.process_params(params["Raw"])
+    end
+    send_response(response)
+  end
+
   def controller_data
-    
+     
     if (d = Device.find_by_id(params[:device_id])) != nil
       d_params = []
       d_faults = []
       d_infos = []
       d_faulthistory = []
+      count = 1
+      d_params_tmp1 = nil
+      d_params_tmp2 = nil
+      d_params_tmp3 = nil
+      #binding.pry
+
       d.deviceparameters.each do |dp|
-        d_params << {name: dp.parameter.display_name, value: dp.value_normalized}
+        #binding.pry
+        if count == 4
+          d_params <<  {column1: d_params_tmp1, column2: d_params_tmp2, column3: d_params_tmp3 }
+          d_params_tmp1 = nil
+          d_params_tmp2 = nil
+          d_params_tmp3 = nil
+          count = 1
+        end
+        if count == 1
+          d_params_tmp1 = {name: dp.parameter.display_name, value: dp.value_normalized}  
+        elsif count == 2
+          d_params_tmp2 = {name: dp.parameter.display_name, value: dp.value_normalized}  
+        elsif count == 3
+          d_params_tmp3 = {name: dp.parameter.display_name, value: dp.value_normalized}  
+        end
+        count += 1
       end
+      d_params <<  {column1: d_params_tmp1, column2: d_params_tmp2, column3: d_params_tmp3 }
+    
       d.deviceinfos.each do |di|
+
         d_infos << {name: di.parameter.display_name, value: di.value_normalized}
       end
+      
       has_fault = false
       d.devicefaults.where(value:  1).each do |df|
-        d_faults << {name: df.parameter.display_name, value: df.value_normalized}
+        d_faults << {name: df.parameter.can_name + " / " + df.parameter.display_name, value: df.value_normalized}
         has_fault = true
       end
       d.faulthistories.each do |dfh|
-        d_faulthistory << {name: dfh.description, started: dfh.created_at.strftime("%d-%m-%Y %H:%M"), ended: dfh.active == 0 ? dfh.updated_at.strftime("%d-%m-%Y %H:%M") : nil}
+        d_faulthistory << {name: dfh.parameter.can_name + " / " + dfh.parameter.display_name, started: dfh.created_at.strftime("%d-%m-%Y %H:%M"), ended: dfh.active == 0 ? dfh.updated_at.strftime("%d-%m-%Y %H:%M") : nil}
 
       end
         

@@ -9,8 +9,6 @@
     %div{ :class => "menu #{@current_tab == 'Dashboard' ? 'active' : ''}" }
       = link_to "Dashboards"
       .submenu= link_to "20x20", admin_dashboard_index_path
-      .submenu= link_to "Histórico de Falhas", "javascript:alert('link inativo');"
-
 
     %div{ :class => "menu #{@current_tab == 'cadastros' ? 'active' : ''}" }
       = link_to "Cadastros"

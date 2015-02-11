@@ -1,6 +1,6 @@
 class Api::ClairvoyantController < Api::ApplicationController
     before_filter :restrict_access , :except => [ :create_clairvoyant , :all_clairvoyants, :clairvoyant_devices]
-
+ 
 
 
     def clairvoyant_devices
@@ -8,25 +8,14 @@ class Api::ClairvoyantController < Api::ApplicationController
       devices = []
       
       c.device.each do |d|
-        d_params = []
-        d_faults = []
-        d_infos = []
-
-        d.deviceparameters.each do |dp|
-          d_params << {name: dp.parameter.display_name, value: dp.value_normalized}
-        end
-        d.deviceinfos.each do |di|
-          d_infos << {name: di.parameter.display_name, value: di.value_normalized}
-        end
         has_fault = false
-        d.devicefaults.where(value:  1).each do |df|
-          d_faults << {name: df.parameter.display_name, value: df.value_normalized}
+        if d.devicefaults.where(value:  1).length > 0
           has_fault = true
         end
-        dev_array = {device: d, d_params: d_params, d_infos: d_infos, d_faults: d_faults, has_fault: has_fault}
+        dev_array = {device: d, has_fault: has_fault}
         devices << dev_array
-        
       end
+
       response = {clairvoyant: c, devices: devices}
       send_response(response)
 

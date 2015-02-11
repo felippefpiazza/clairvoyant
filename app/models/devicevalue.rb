@@ -4,6 +4,6 @@ class Devicevalue < ActiveRecord::Base
   belongs_to  :parameter
   
   def value_normalized
-    self.value
+    return self.parameter.display_value(value)
   end
 end

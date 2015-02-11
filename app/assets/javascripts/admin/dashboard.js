@@ -16,13 +16,25 @@ angular.module('RefreshDashboard', ['ngAnimate'])
 		};		
 
 		$scope.getControllerData = function(controller_id) {
-			$http.post("/api/controller_data.json", {device_id: controller_id})
+			$http.post("/api/controller_data.json", {device_id: $scope.getcontroller_controller_id})
     			.success(function(response) {
 					$scope.controller_data_store = response;
 					$scope.toogleControllerDataMenu();
 				});
 		};
-		
+
+		$scope.intervalgetControllerData = function(){
+			$scope.getControllerData();
+			if(!$scope.pull_controller_data) {
+				$timeout.cancel(controller_data_pulling_timeout);
+			}
+		    var controller_data_pulling_timeout = $timeout(function() {
+		      $scope.intervalgetControllerData();
+		    }, 500000);
+		  };	
+
+
+
 		$scope.ClearControllerData = function(){
 			$scope.controller_data_infos = null;
 			$scope.controller_data_params = null;
@@ -85,7 +97,7 @@ angular.module('RefreshDashboard', ['ngAnimate'])
 		    $timeout(function() {
 		      $scope.getClairvoyantData();
 		      $scope.intervalFunction();
-		    }, 3000000)
+		    }, 60000)
 		  };
 
 		$scope.toogleClairvoyantDetails = function(clairvoyant_id){
@@ -98,17 +110,27 @@ angular.module('RefreshDashboard', ['ngAnimate'])
 			}
 		}
 
-		$scope.openControllerDetails = function(controller_id){
-				$scope.getControllerData(controller_id)
+		$scope.openControllerDetails = function(clairvoyant_id,controller_id){
+				$scope.getcontroller_controller_id = controller_id;
+				$scope.getDeviceData(clairvoyant_id);
+				$scope.getControllerData();
 				$scope.controller_details=true;
+				if (!$scope.pull_controller_details) {
+					$scope.pull_controller_data=true;
+					$scope.intervalgetControllerData();
+				} 
 		}
 
 		$scope.closeControllerDetails = function() {
-			$scope.controller_details=false;			
+			$scope.controller_details=false;
+			$scope.pull_controller_data=false;
+			
 		}
 
-		$scope.clairvoyants = []
-		$scope.clairvoyants_devices = {"clairvoyant": {}, "devices": []}
+		$scope.pull_controller_data = false;
+		$scope.getcontroller_controller_id = 0;
+		$scope.clairvoyants = [];
+		$scope.clairvoyants_devices = {"clairvoyant": {}, "devices": []};
 		$scope.search_client_id = "";
 		$scope.search_serial = "";
 		$scope.getClairvoyantData();
