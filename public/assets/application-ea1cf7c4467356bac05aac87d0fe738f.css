@@ -1,0 +1,912 @@
+/* -------------------------------------------------------------- 
+   
+   forms.css
+   * Sets up some default styling for forms
+   * Gives you classes to enhance your forms
+   
+   Usage:
+   * For text fields, use class .title or .text
+   
+-------------------------------------------------------------- */
+/* line 13, /var/www/clairvoyant/current/app/assets/stylesheets/forms.css.scss */
+form {
+  display: block;
+  position: relative;
+}
+
+/* line 14, /var/www/clairvoyant/current/app/assets/stylesheets/forms.css.scss */
+label {
+  font-weight: bold;
+  margin: 2px;
+}
+
+/* line 15, /var/www/clairvoyant/current/app/assets/stylesheets/forms.css.scss */
+fieldset {
+  padding: 2px;
+  margin: 2px 0 2px 0;
+  border: 1px solid #ccc;
+}
+
+/* line 16, /var/www/clairvoyant/current/app/assets/stylesheets/forms.css.scss */
+legend {
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+/* Form fields
+-------------------------------------------------------------- */
+/* line 23, /var/www/clairvoyant/current/app/assets/stylesheets/forms.css.scss */
+.field input, .field input,
+.field textarea, .field select {
+  margin: 0.5em 0;
+  border: 1px solid #bbb;
+  border-top-left-radius: 5px 5px;
+  border-top-right-radius: 5px 5px;
+  border-bottom-right-radius: 5px 5px;
+  border-bottom-left-radius: 5px 5px;
+}
+/* line 32, /var/www/clairvoyant/current/app/assets/stylesheets/forms.css.scss */
+.field input[type=file] {
+  border: none;
+  width: auto;
+}
+/* line 37, /var/www/clairvoyant/current/app/assets/stylesheets/forms.css.scss */
+.field input[type=radio] {
+  width: auto;
+}
+/* line 42, /var/www/clairvoyant/current/app/assets/stylesheets/forms.css.scss */
+.field input:focus, .field input:focus,
+.field textarea:focus, .field select:focus {
+  border: 1px solid #666;
+}
+/* line 46, /var/www/clairvoyant/current/app/assets/stylesheets/forms.css.scss */
+.field input {
+  width: 100%;
+  padding: 5px;
+}
+/* line 47, /var/www/clairvoyant/current/app/assets/stylesheets/forms.css.scss */
+.field textarea {
+  width: 100%;
+  height: 250px;
+  padding: 5px;
+}
+/* line 49, /var/www/clairvoyant/current/app/assets/stylesheets/forms.css.scss */
+.field input.big, .field textarea.big {
+  width: 90%;
+}
+/* line 53, /var/www/clairvoyant/current/app/assets/stylesheets/forms.css.scss */
+.field input.short, .field textarea.short {
+  width: 60%;
+}
+/* line 57, /var/www/clairvoyant/current/app/assets/stylesheets/forms.css.scss */
+.field input.veryshort, .field textarea.veryshort {
+  width: 30%;
+}
+/* line 61, /var/www/clairvoyant/current/app/assets/stylesheets/forms.css.scss */
+.field input.disabled, .field textarea.disabled {
+  border: 0px;
+  margin: 0px;
+  padding: 0px;
+}
+
+/* line 68, /var/www/clairvoyant/current/app/assets/stylesheets/forms.css.scss */
+.actions {
+  position: absolute;
+  clear: both;
+  bottom: 0px;
+  width: 98%;
+  margin-top: 20px;
+  margin-bottom: -80px;
+  padding: 1%;
+  text-align: center;
+  background-color: #eee;
+  border-top-left-radius: 5px 5px;
+  border-top-right-radius: 5px 5px;
+  border-bottom-right-radius: 5px 5px;
+  border-bottom-left-radius: 5px 5px;
+}
+
+/* line 85, /var/www/clairvoyant/current/app/assets/stylesheets/forms.css.scss */
+form .ui-autocomplete-loading {
+  background: white url("/images/ui-anim_basic_16x16.gif") right center no-repeat;
+}
+/* line 89, /var/www/clairvoyant/current/app/assets/stylesheets/forms.css.scss */
+form .left {
+  text-align: left;
+}
+/* line 93, /var/www/clairvoyant/current/app/assets/stylesheets/forms.css.scss */
+form .center {
+  text-align: center;
+}
+/* line 97, /var/www/clairvoyant/current/app/assets/stylesheets/forms.css.scss */
+form .right {
+  text-align: right;
+}
+/* line 100, /var/www/clairvoyant/current/app/assets/stylesheets/forms.css.scss */
+form .right .error_message {
+  text-align: right;
+}
+/* line 105, /var/www/clairvoyant/current/app/assets/stylesheets/forms.css.scss */
+form .valign-top {
+  vertical-align: top;
+}
+/* line 107, /var/www/clairvoyant/current/app/assets/stylesheets/forms.css.scss */
+form .valign-top td, form .valign-top th {
+  vertical-align: top;
+}
+/* line 112, /var/www/clairvoyant/current/app/assets/stylesheets/forms.css.scss */
+form .row {
+  position: relative;
+  display: block;
+  clear: both;
+}
+/* line 117, /var/www/clairvoyant/current/app/assets/stylesheets/forms.css.scss */
+form .row .col {
+  position: relative;
+  float: left;
+}
+/* line 122, /var/www/clairvoyant/current/app/assets/stylesheets/forms.css.scss */
+form .row .button.middle {
+  vertical-align: middle;
+  margin-top: 10px;
+}
+/* line 127, /var/www/clairvoyant/current/app/assets/stylesheets/forms.css.scss */
+form .row .w5 {
+  width: 5%;
+}
+/* line 131, /var/www/clairvoyant/current/app/assets/stylesheets/forms.css.scss */
+form .row .w25 {
+  width: 25%;
+}
+/* line 135, /var/www/clairvoyant/current/app/assets/stylesheets/forms.css.scss */
+form .row .w30 {
+  width: 30%;
+}
+/* line 139, /var/www/clairvoyant/current/app/assets/stylesheets/forms.css.scss */
+form .row .w50 {
+  width: 50%;
+}
+/* line 143, /var/www/clairvoyant/current/app/assets/stylesheets/forms.css.scss */
+form .row .w70 {
+  width: 70%;
+}
+/* line 148, /var/www/clairvoyant/current/app/assets/stylesheets/forms.css.scss */
+form .field {
+  margin-bottom: 10px;
+}
+/* line 151, /var/www/clairvoyant/current/app/assets/stylesheets/forms.css.scss */
+form .field .date {
+  width: 75px;
+  text-align: center;
+}
+/* line 158, /var/www/clairvoyant/current/app/assets/stylesheets/forms.css.scss */
+form .invalid label {
+  color: red;
+}
+/* line 162, /var/www/clairvoyant/current/app/assets/stylesheets/forms.css.scss */
+form .invalid input[type='text'] {
+  border-color: red;
+}
+/* line 167, /var/www/clairvoyant/current/app/assets/stylesheets/forms.css.scss */
+form .error_message {
+  text-align: left;
+  font-weight: bold;
+  color: red;
+  margin-bottom: 5px;
+  margin-left: 5px;
+}
+/* line 176, /var/www/clairvoyant/current/app/assets/stylesheets/forms.css.scss */
+form table.borders tr.invalid td {
+  background-color: #FBE3E4;
+}
+/* line 181, /var/www/clairvoyant/current/app/assets/stylesheets/forms.css.scss */
+form table.borders thead th {
+  font-weight: bold;
+  background-color: #eee;
+  line-height: 16px;
+  border-right: 1px solid white;
+  border-top: 2px solid #b4c3c8;
+}
+/* line 189, /var/www/clairvoyant/current/app/assets/stylesheets/forms.css.scss */
+form table.borders thead th:first-child {
+  border-left: 2px solid #b4c3c8;
+}
+/* line 193, /var/www/clairvoyant/current/app/assets/stylesheets/forms.css.scss */
+form table.borders thead th:last-child {
+  border-right: 2px solid #b4c3c8;
+}
+/* line 200, /var/www/clairvoyant/current/app/assets/stylesheets/forms.css.scss */
+form table.borders tbody tr:last-child td {
+  border-bottom: 2px solid #b4c3c8;
+}
+/* line 205, /var/www/clairvoyant/current/app/assets/stylesheets/forms.css.scss */
+form table.borders tbody td {
+  line-height: 16px;
+  border-right: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+}
+/* line 211, /var/www/clairvoyant/current/app/assets/stylesheets/forms.css.scss */
+form table.borders tbody td:first-child {
+  border-left: 2px solid #b4c3c8;
+}
+/* line 215, /var/www/clairvoyant/current/app/assets/stylesheets/forms.css.scss */
+form table.borders tbody td:last-child {
+  border-right: 2px solid #b4c3c8;
+}
+
+/* line 2, /var/www/clairvoyant/current/app/assets/stylesheets/buttons.css.scss */
+body .button.gray {
+  border: 1px solid #818181;
+  border-color: #818181 #717171 #656565;
+  border-radius: 16px;
+  box-shadow: inset 0 1px 0 0 #b9b9b9;
+  color: #333333;
+  display: inline-block;
+  font-size: inherit;
+  font-weight: normal;
+  line-height: 1;
+  background-color: #a7a7a7;
+  background-image: -webkit-linear-gradient(#a7a7a7, #8d8d8d);
+  background-image: linear-gradient(#a7a7a7, #8d8d8d);
+  padding: 7px 18px;
+  text-align: center;
+  text-decoration: none;
+  text-shadow: 0 -1px 1px #b1b1b1;
+  background-clip: padding-box;
+  border: 1px solid #818181;
+  border-color: #818181 #717171 #656565;
+  border-radius: 16px;
+  box-shadow: inset 0 1px 0 0 #b9b9b9;
+  color: #333333;
+  display: inline-block;
+  font-size: inherit;
+  font-weight: normal;
+  line-height: 1;
+  background-color: #a7a7a7;
+  background-image: -webkit-linear-gradient(#a7a7a7, #9d827e);
+  background-image: linear-gradient(#a7a7a7, #9d827e);
+  padding: 7px 18px;
+  text-align: center;
+  text-decoration: none;
+  text-shadow: 0 -1px 1px #b9a9a9;
+  background-clip: padding-box;
+}
+/* line 278, /usr/local/rvm/gems/ruby-2.1.2/gems/bourbon-3.2.3/app/assets/stylesheets/addons/_button.scss */
+body .button.gray:hover:not(:disabled) {
+  border: 1px solid #717171;
+  border-color: #717171 #626262 #555555;
+  box-shadow: inset 0 1px 0 0 #afafaf;
+  cursor: pointer;
+  background-color: #9c9c9c;
+  background-image: -webkit-linear-gradient(#9c9c9c, #7f7f7f);
+  background-image: linear-gradient(#9c9c9c, #7f7f7f);
+  text-shadow: 0 -1px 1px #6f6f6f;
+  background-clip: padding-box;
+}
+/* line 307, /usr/local/rvm/gems/ruby-2.1.2/gems/bourbon-3.2.3/app/assets/stylesheets/addons/_button.scss */
+body .button.gray:active:not(:disabled), body .button.gray:focus:not(:disabled) {
+  background: #8d8d8d;
+  border: 1px solid #5a5a5a;
+  border-bottom: 1px solid #585858;
+  box-shadow: inset 0 0 6px 3px #707070;
+  text-shadow: 0 -1px 1px #707070;
+}
+/* line 278, /usr/local/rvm/gems/ruby-2.1.2/gems/bourbon-3.2.3/app/assets/stylesheets/addons/_button.scss */
+body .button.gray:hover:not(:disabled) {
+  border: 1px solid #717171;
+  border-color: #717171 #626262 #614d4a;
+  box-shadow: inset 0 1px 0 0 #afafaf;
+  cursor: pointer;
+  background-color: #9c9c9c;
+  background-image: -webkit-linear-gradient(#9c9c9c, #7f7f7f);
+  background-image: linear-gradient(#9c9c9c, #7f7f7f);
+  text-shadow: 0 -1px 1px #6f6f6f;
+  background-clip: padding-box;
+}
+/* line 307, /usr/local/rvm/gems/ruby-2.1.2/gems/bourbon-3.2.3/app/assets/stylesheets/addons/_button.scss */
+body .button.gray:active:not(:disabled), body .button.gray:focus:not(:disabled) {
+  background: #8d8d8d;
+  border: 1px solid #5a5a5a;
+  border-bottom: 1px solid #5d5553;
+  box-shadow: inset 0 0 6px 3px #726f6e;
+  text-shadow: 0 -1px 1px #707070;
+}
+/* line 51, /usr/local/rvm/gems/ruby-2.1.2/gems/bourbon-3.2.3/app/assets/stylesheets/addons/_button.scss */
+body .button.gray:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+/* line 4, /var/www/clairvoyant/current/app/assets/stylesheets/buttons.css.scss */
+body .button.gray a {
+  color: white;
+}
+/* line 9, /var/www/clairvoyant/current/app/assets/stylesheets/buttons.css.scss */
+body .button.green {
+  border: 1px solid #88a22e;
+  border-color: #88a22e #6f931f #5a8513;
+  border-radius: 16px;
+  box-shadow: inset 0 1px 0 0 #ccf150;
+  color: #333333;
+  display: inline-block;
+  font-size: inherit;
+  font-weight: normal;
+  line-height: 1;
+  background-color: #c0ef2e;
+  background-image: -webkit-linear-gradient(#c0ef2e, #92ea00);
+  background-image: linear-gradient(#c0ef2e, #92ea00);
+  padding: 7px 18px;
+  text-align: center;
+  text-decoration: none;
+  text-shadow: 0 -1px 1px #cbfb37;
+  background-clip: padding-box;
+}
+/* line 278, /usr/local/rvm/gems/ruby-2.1.2/gems/bourbon-3.2.3/app/assets/stylesheets/addons/_button.scss */
+body .button.green:hover:not(:disabled) {
+  border: 1px solid #7a961c;
+  border-color: #7a961c #61870c #4c7900;
+  box-shadow: inset 0 1px 0 0 #c4ef3d;
+  cursor: pointer;
+  background-color: #baed19;
+  background-image: -webkit-linear-gradient(#baed19, #7cbb13);
+  background-image: linear-gradient(#baed19, #7cbb13);
+  text-shadow: 0 -1px 1px #6f9c11;
+  background-clip: padding-box;
+}
+/* line 307, /usr/local/rvm/gems/ruby-2.1.2/gems/bourbon-3.2.3/app/assets/stylesheets/addons/_button.scss */
+body .button.green:active:not(:disabled), body .button.green:focus:not(:disabled) {
+  background: #96cb1f;
+  border: 1px solid #53790b;
+  border-bottom: 1px solid #487a05;
+  box-shadow: inset 0 0 6px 3px #68a50b;
+  text-shadow: 0 -1px 1px #6e9817;
+}
+/* line 51, /usr/local/rvm/gems/ruby-2.1.2/gems/bourbon-3.2.3/app/assets/stylesheets/addons/_button.scss */
+body .button.green:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+/* line 13, /var/www/clairvoyant/current/app/assets/stylesheets/buttons.css.scss */
+body .button.red {
+  border: 1px solid #63191b;
+  border-color: #63191b #4f130f #3d0f08;
+  border-radius: 16px;
+  box-shadow: inset 0 1px 0 0 #df0e12;
+  color: white;
+  display: inline-block;
+  font-size: inherit;
+  font-weight: normal;
+  line-height: 1;
+  background-color: #be0b0b;
+  background-image: -webkit-linear-gradient(#be0b0b, #961400);
+  background-image: linear-gradient(#be0b0b, #961400);
+  padding: 7px 18px;
+  text-align: center;
+  text-decoration: none;
+  text-shadow: 0 -1px 1px #6a1a13;
+  background-clip: padding-box;
+}
+/* line 278, /usr/local/rvm/gems/ruby-2.1.2/gems/bourbon-3.2.3/app/assets/stylesheets/addons/_button.scss */
+body .button.red:hover:not(:disabled) {
+  border: 1px solid #510d0e;
+  border-color: #510d0e #3b0804 #260500;
+  box-shadow: inset 0 1px 0 0 #cb0d0d;
+  cursor: pointer;
+  background-color: #a80a0a;
+  background-image: -webkit-linear-gradient(#a80a0a, #711709);
+  background-image: linear-gradient(#a80a0a, #711709);
+  text-shadow: 0 -1px 1px #520d07;
+  background-clip: padding-box;
+}
+/* line 307, /usr/local/rvm/gems/ruby-2.1.2/gems/bourbon-3.2.3/app/assets/stylesheets/addons/_button.scss */
+body .button.red:active:not(:disabled), body .button.red:focus:not(:disabled) {
+  background: #851911;
+  border: 1px solid #2d0703;
+  border-bottom: 1px solid #2a0901;
+  box-shadow: inset 0 0 6px 3px #571104;
+  text-shadow: 0 -1px 1px #51100a;
+}
+/* line 51, /usr/local/rvm/gems/ruby-2.1.2/gems/bourbon-3.2.3/app/assets/stylesheets/addons/_button.scss */
+body .button.red:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+/* line 16, /var/www/clairvoyant/current/app/assets/stylesheets/buttons.css.scss */
+body .button.red a {
+  color: white;
+}
+/* line 21, /var/www/clairvoyant/current/app/assets/stylesheets/buttons.css.scss */
+body .button.blue {
+  border: 1px solid #485b78;
+  border-color: #485b78 #35476d #263562;
+  border-radius: 16px;
+  box-shadow: inset 0 1px 0 0 #618dd0;
+  color: white;
+  display: inline-block;
+  font-size: inherit;
+  font-weight: normal;
+  line-height: 1;
+  background-color: #4477c9;
+  background-image: -webkit-linear-gradient(#4477c9, #2247b8);
+  background-image: linear-gradient(#4477c9, #2247b8);
+  padding: 7px 18px;
+  text-align: center;
+  text-decoration: none;
+  text-shadow: 0 -1px 1px #3d5283;
+  background-clip: padding-box;
+}
+/* line 278, /usr/local/rvm/gems/ruby-2.1.2/gems/bourbon-3.2.3/app/assets/stylesheets/addons/_button.scss */
+body .button.blue:hover:not(:disabled) {
+  border: 1px solid #324b70;
+  border-color: #324b70 #1f3565 #112359;
+  box-shadow: inset 0 1px 0 0 #5180cb;
+  cursor: pointer;
+  background-color: #376bbf;
+  background-image: -webkit-linear-gradient(#376bbf, #2e4790);
+  background-image: linear-gradient(#376bbf, #2e4790);
+  text-shadow: 0 -1px 1px #273f76;
+  background-clip: padding-box;
+}
+/* line 307, /usr/local/rvm/gems/ruby-2.1.2/gems/bourbon-3.2.3/app/assets/stylesheets/addons/_button.scss */
+body .button.blue:active:not(:disabled), body .button.blue:focus:not(:disabled) {
+  background: #3e5c9c;
+  border: 1px solid #1b2d59;
+  border-bottom: 1px solid #162359;
+  box-shadow: inset 0 0 6px 3px #22377d;
+  text-shadow: 0 -1px 1px #2d4272;
+}
+/* line 51, /usr/local/rvm/gems/ruby-2.1.2/gems/bourbon-3.2.3/app/assets/stylesheets/addons/_button.scss */
+body .button.blue:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+/* line 23, /var/www/clairvoyant/current/app/assets/stylesheets/buttons.css.scss */
+body .button.blue a {
+  color: white;
+}
+/* line 28, /var/www/clairvoyant/current/app/assets/stylesheets/buttons.css.scss */
+body .button.inline {
+  margin: 0.2em 0.5em;
+}
+/* line 32, /var/www/clairvoyant/current/app/assets/stylesheets/buttons.css.scss */
+body .button.button-big {
+  font-size: 12pt;
+}
+/* line 36, /var/www/clairvoyant/current/app/assets/stylesheets/buttons.css.scss */
+body .button {
+  text-shadow: white 1px 1px 0px;
+  vertical-align: top;
+  margin-right: 5px;
+  margin-left: 5px;
+}
+/* line 42, /var/www/clairvoyant/current/app/assets/stylesheets/buttons.css.scss */
+body .button .ss_sprite {
+  display: block;
+  height: 17px;
+  float: left;
+  margin-right: 5px;
+}
+/* line 49, /var/www/clairvoyant/current/app/assets/stylesheets/buttons.css.scss */
+body .button .ui-button-text {
+  font-size: 10pt;
+  padding: 0px 5px;
+  line-height: 15px;
+}
+/* line 56, /var/www/clairvoyant/current/app/assets/stylesheets/buttons.css.scss */
+body .button.button-small {
+  padding: 0px 5px;
+}
+
+/* line 4, /var/www/clairvoyant/current/app/assets/stylesheets/errors.css.scss */
+body .flash.alert,
+body .flash.warn,
+body .flash.notice {
+  padding: .8em;
+  margin-bottom: 10px;
+  border: 2px solid #b4c3c8;
+  font-size: 10pt;
+}
+/* line 8, /var/www/clairvoyant/current/app/assets/stylesheets/errors.css.scss */
+body .flash.alert.thin,
+body .flash.warn.thin,
+body .flash.notice.thin {
+  padding: 2px;
+  margin-bottom: 0;
+  border: 2px solid #b4c3c8;
+}
+/* line 10, /var/www/clairvoyant/current/app/assets/stylesheets/errors.css.scss */
+body .flash.alert {
+  background: #FBE3E4;
+  color: #8a1f11;
+  border-color: #FBC2C4;
+}
+/* line 11, /var/www/clairvoyant/current/app/assets/stylesheets/errors.css.scss */
+body .flash.warn {
+  background: #FFF6BF;
+  color: #514721;
+  border-color: #FFD324;
+}
+/* line 12, /var/www/clairvoyant/current/app/assets/stylesheets/errors.css.scss */
+body .flash.notice {
+  background: #E6EFC2;
+  color: #264409;
+  border-color: #C6D880;
+}
+/* line 14, /var/www/clairvoyant/current/app/assets/stylesheets/errors.css.scss */
+body .flash.alert.thin {
+  background: #FBE3E4;
+  color: #8a1f11;
+  border-color: #FBC2C4;
+}
+/* line 15, /var/www/clairvoyant/current/app/assets/stylesheets/errors.css.scss */
+body .flash.warn.thin {
+  background: #FFF6BF;
+  color: #514721;
+  border-color: #FFD324;
+}
+/* line 16, /var/www/clairvoyant/current/app/assets/stylesheets/errors.css.scss */
+body .flash.notice.thin {
+  background: #E6EFC2;
+  color: #264409;
+  border-color: #C6D880;
+}
+/* line 18, /var/www/clairvoyant/current/app/assets/stylesheets/errors.css.scss */
+body .flash.alert a {
+  color: #8a1f11;
+}
+/* line 19, /var/www/clairvoyant/current/app/assets/stylesheets/errors.css.scss */
+body .flash.warn a {
+  color: #514721;
+}
+/* line 20, /var/www/clairvoyant/current/app/assets/stylesheets/errors.css.scss */
+body .flash.notice a {
+  color: #264409;
+}
+/* line 22, /var/www/clairvoyant/current/app/assets/stylesheets/errors.css.scss */
+body .error_messages {
+  margin: 10px;
+  border: 2px solid red;
+  padding: 10px;
+  color: red;
+}
+/* line 26, /var/www/clairvoyant/current/app/assets/stylesheets/errors.css.scss */
+body .error_messages h2 {
+  color: red;
+}
+
+/* line 1, /var/www/clairvoyant/current/app/assets/stylesheets/authentication.css.scss */
+body#authentication {
+  background: black;
+}
+/* line 4, /var/www/clairvoyant/current/app/assets/stylesheets/authentication.css.scss */
+body#authentication div#container {
+  display: block;
+  position: absolute;
+  overflow: auto;
+  top: 10%;
+  left: 50%;
+  width: 300px;
+  height: auto;
+  margin-left: -150px;
+  padding: 25px;
+  padding-top: 100px;
+  background: #dddddd url("/images/logos/grande.png") no-repeat right top;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  box-shadow: 0 0 10px 3px white;
+}
+/* line 26, /var/www/clairvoyant/current/app/assets/stylesheets/authentication.css.scss */
+body#authentication div#container .actions {
+  padding-top: 25px;
+  text-align: center;
+}
+
+/* line 2, /var/www/clairvoyant/current/app/assets/stylesheets/buttons.css.scss */
+body .button.gray {
+  border: 1px solid #818181;
+  border-color: #818181 #717171 #656565;
+  border-radius: 16px;
+  box-shadow: inset 0 1px 0 0 #b9b9b9;
+  color: #333333;
+  display: inline-block;
+  font-size: inherit;
+  font-weight: normal;
+  line-height: 1;
+  background-color: #a7a7a7;
+  background-image: -webkit-linear-gradient(#a7a7a7, #8d8d8d);
+  background-image: linear-gradient(#a7a7a7, #8d8d8d);
+  padding: 7px 18px;
+  text-align: center;
+  text-decoration: none;
+  text-shadow: 0 -1px 1px #b1b1b1;
+  background-clip: padding-box;
+  border: 1px solid #818181;
+  border-color: #818181 #717171 #656565;
+  border-radius: 16px;
+  box-shadow: inset 0 1px 0 0 #b9b9b9;
+  color: #333333;
+  display: inline-block;
+  font-size: inherit;
+  font-weight: normal;
+  line-height: 1;
+  background-color: #a7a7a7;
+  background-image: -webkit-linear-gradient(#a7a7a7, #9d827e);
+  background-image: linear-gradient(#a7a7a7, #9d827e);
+  padding: 7px 18px;
+  text-align: center;
+  text-decoration: none;
+  text-shadow: 0 -1px 1px #b9a9a9;
+  background-clip: padding-box;
+}
+/* line 278, /usr/local/rvm/gems/ruby-2.1.2/gems/bourbon-3.2.3/app/assets/stylesheets/addons/_button.scss */
+body .button.gray:hover:not(:disabled) {
+  border: 1px solid #717171;
+  border-color: #717171 #626262 #555555;
+  box-shadow: inset 0 1px 0 0 #afafaf;
+  cursor: pointer;
+  background-color: #9c9c9c;
+  background-image: -webkit-linear-gradient(#9c9c9c, #7f7f7f);
+  background-image: linear-gradient(#9c9c9c, #7f7f7f);
+  text-shadow: 0 -1px 1px #6f6f6f;
+  background-clip: padding-box;
+}
+/* line 307, /usr/local/rvm/gems/ruby-2.1.2/gems/bourbon-3.2.3/app/assets/stylesheets/addons/_button.scss */
+body .button.gray:active:not(:disabled), body .button.gray:focus:not(:disabled) {
+  background: #8d8d8d;
+  border: 1px solid #5a5a5a;
+  border-bottom: 1px solid #585858;
+  box-shadow: inset 0 0 6px 3px #707070;
+  text-shadow: 0 -1px 1px #707070;
+}
+/* line 278, /usr/local/rvm/gems/ruby-2.1.2/gems/bourbon-3.2.3/app/assets/stylesheets/addons/_button.scss */
+body .button.gray:hover:not(:disabled) {
+  border: 1px solid #717171;
+  border-color: #717171 #626262 #614d4a;
+  box-shadow: inset 0 1px 0 0 #afafaf;
+  cursor: pointer;
+  background-color: #9c9c9c;
+  background-image: -webkit-linear-gradient(#9c9c9c, #7f7f7f);
+  background-image: linear-gradient(#9c9c9c, #7f7f7f);
+  text-shadow: 0 -1px 1px #6f6f6f;
+  background-clip: padding-box;
+}
+/* line 307, /usr/local/rvm/gems/ruby-2.1.2/gems/bourbon-3.2.3/app/assets/stylesheets/addons/_button.scss */
+body .button.gray:active:not(:disabled), body .button.gray:focus:not(:disabled) {
+  background: #8d8d8d;
+  border: 1px solid #5a5a5a;
+  border-bottom: 1px solid #5d5553;
+  box-shadow: inset 0 0 6px 3px #726f6e;
+  text-shadow: 0 -1px 1px #707070;
+}
+/* line 51, /usr/local/rvm/gems/ruby-2.1.2/gems/bourbon-3.2.3/app/assets/stylesheets/addons/_button.scss */
+body .button.gray:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+/* line 4, /var/www/clairvoyant/current/app/assets/stylesheets/buttons.css.scss */
+body .button.gray a {
+  color: white;
+}
+/* line 9, /var/www/clairvoyant/current/app/assets/stylesheets/buttons.css.scss */
+body .button.green {
+  border: 1px solid #88a22e;
+  border-color: #88a22e #6f931f #5a8513;
+  border-radius: 16px;
+  box-shadow: inset 0 1px 0 0 #ccf150;
+  color: #333333;
+  display: inline-block;
+  font-size: inherit;
+  font-weight: normal;
+  line-height: 1;
+  background-color: #c0ef2e;
+  background-image: -webkit-linear-gradient(#c0ef2e, #92ea00);
+  background-image: linear-gradient(#c0ef2e, #92ea00);
+  padding: 7px 18px;
+  text-align: center;
+  text-decoration: none;
+  text-shadow: 0 -1px 1px #cbfb37;
+  background-clip: padding-box;
+}
+/* line 278, /usr/local/rvm/gems/ruby-2.1.2/gems/bourbon-3.2.3/app/assets/stylesheets/addons/_button.scss */
+body .button.green:hover:not(:disabled) {
+  border: 1px solid #7a961c;
+  border-color: #7a961c #61870c #4c7900;
+  box-shadow: inset 0 1px 0 0 #c4ef3d;
+  cursor: pointer;
+  background-color: #baed19;
+  background-image: -webkit-linear-gradient(#baed19, #7cbb13);
+  background-image: linear-gradient(#baed19, #7cbb13);
+  text-shadow: 0 -1px 1px #6f9c11;
+  background-clip: padding-box;
+}
+/* line 307, /usr/local/rvm/gems/ruby-2.1.2/gems/bourbon-3.2.3/app/assets/stylesheets/addons/_button.scss */
+body .button.green:active:not(:disabled), body .button.green:focus:not(:disabled) {
+  background: #96cb1f;
+  border: 1px solid #53790b;
+  border-bottom: 1px solid #487a05;
+  box-shadow: inset 0 0 6px 3px #68a50b;
+  text-shadow: 0 -1px 1px #6e9817;
+}
+/* line 51, /usr/local/rvm/gems/ruby-2.1.2/gems/bourbon-3.2.3/app/assets/stylesheets/addons/_button.scss */
+body .button.green:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+/* line 13, /var/www/clairvoyant/current/app/assets/stylesheets/buttons.css.scss */
+body .button.red {
+  border: 1px solid #63191b;
+  border-color: #63191b #4f130f #3d0f08;
+  border-radius: 16px;
+  box-shadow: inset 0 1px 0 0 #df0e12;
+  color: white;
+  display: inline-block;
+  font-size: inherit;
+  font-weight: normal;
+  line-height: 1;
+  background-color: #be0b0b;
+  background-image: -webkit-linear-gradient(#be0b0b, #961400);
+  background-image: linear-gradient(#be0b0b, #961400);
+  padding: 7px 18px;
+  text-align: center;
+  text-decoration: none;
+  text-shadow: 0 -1px 1px #6a1a13;
+  background-clip: padding-box;
+}
+/* line 278, /usr/local/rvm/gems/ruby-2.1.2/gems/bourbon-3.2.3/app/assets/stylesheets/addons/_button.scss */
+body .button.red:hover:not(:disabled) {
+  border: 1px solid #510d0e;
+  border-color: #510d0e #3b0804 #260500;
+  box-shadow: inset 0 1px 0 0 #cb0d0d;
+  cursor: pointer;
+  background-color: #a80a0a;
+  background-image: -webkit-linear-gradient(#a80a0a, #711709);
+  background-image: linear-gradient(#a80a0a, #711709);
+  text-shadow: 0 -1px 1px #520d07;
+  background-clip: padding-box;
+}
+/* line 307, /usr/local/rvm/gems/ruby-2.1.2/gems/bourbon-3.2.3/app/assets/stylesheets/addons/_button.scss */
+body .button.red:active:not(:disabled), body .button.red:focus:not(:disabled) {
+  background: #851911;
+  border: 1px solid #2d0703;
+  border-bottom: 1px solid #2a0901;
+  box-shadow: inset 0 0 6px 3px #571104;
+  text-shadow: 0 -1px 1px #51100a;
+}
+/* line 51, /usr/local/rvm/gems/ruby-2.1.2/gems/bourbon-3.2.3/app/assets/stylesheets/addons/_button.scss */
+body .button.red:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+/* line 16, /var/www/clairvoyant/current/app/assets/stylesheets/buttons.css.scss */
+body .button.red a {
+  color: white;
+}
+/* line 21, /var/www/clairvoyant/current/app/assets/stylesheets/buttons.css.scss */
+body .button.blue {
+  border: 1px solid #485b78;
+  border-color: #485b78 #35476d #263562;
+  border-radius: 16px;
+  box-shadow: inset 0 1px 0 0 #618dd0;
+  color: white;
+  display: inline-block;
+  font-size: inherit;
+  font-weight: normal;
+  line-height: 1;
+  background-color: #4477c9;
+  background-image: -webkit-linear-gradient(#4477c9, #2247b8);
+  background-image: linear-gradient(#4477c9, #2247b8);
+  padding: 7px 18px;
+  text-align: center;
+  text-decoration: none;
+  text-shadow: 0 -1px 1px #3d5283;
+  background-clip: padding-box;
+}
+/* line 278, /usr/local/rvm/gems/ruby-2.1.2/gems/bourbon-3.2.3/app/assets/stylesheets/addons/_button.scss */
+body .button.blue:hover:not(:disabled) {
+  border: 1px solid #324b70;
+  border-color: #324b70 #1f3565 #112359;
+  box-shadow: inset 0 1px 0 0 #5180cb;
+  cursor: pointer;
+  background-color: #376bbf;
+  background-image: -webkit-linear-gradient(#376bbf, #2e4790);
+  background-image: linear-gradient(#376bbf, #2e4790);
+  text-shadow: 0 -1px 1px #273f76;
+  background-clip: padding-box;
+}
+/* line 307, /usr/local/rvm/gems/ruby-2.1.2/gems/bourbon-3.2.3/app/assets/stylesheets/addons/_button.scss */
+body .button.blue:active:not(:disabled), body .button.blue:focus:not(:disabled) {
+  background: #3e5c9c;
+  border: 1px solid #1b2d59;
+  border-bottom: 1px solid #162359;
+  box-shadow: inset 0 0 6px 3px #22377d;
+  text-shadow: 0 -1px 1px #2d4272;
+}
+/* line 51, /usr/local/rvm/gems/ruby-2.1.2/gems/bourbon-3.2.3/app/assets/stylesheets/addons/_button.scss */
+body .button.blue:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+/* line 23, /var/www/clairvoyant/current/app/assets/stylesheets/buttons.css.scss */
+body .button.blue a {
+  color: white;
+}
+/* line 28, /var/www/clairvoyant/current/app/assets/stylesheets/buttons.css.scss */
+body .button.inline {
+  margin: 0.2em 0.5em;
+}
+/* line 32, /var/www/clairvoyant/current/app/assets/stylesheets/buttons.css.scss */
+body .button.button-big {
+  font-size: 12pt;
+}
+/* line 36, /var/www/clairvoyant/current/app/assets/stylesheets/buttons.css.scss */
+body .button {
+  text-shadow: white 1px 1px 0px;
+  vertical-align: top;
+  margin-right: 5px;
+  margin-left: 5px;
+}
+/* line 42, /var/www/clairvoyant/current/app/assets/stylesheets/buttons.css.scss */
+body .button .ss_sprite {
+  display: block;
+  height: 17px;
+  float: left;
+  margin-right: 5px;
+}
+/* line 49, /var/www/clairvoyant/current/app/assets/stylesheets/buttons.css.scss */
+body .button .ui-button-text {
+  font-size: 10pt;
+  padding: 0px 5px;
+  line-height: 15px;
+}
+/* line 56, /var/www/clairvoyant/current/app/assets/stylesheets/buttons.css.scss */
+body .button.button-small {
+  padding: 0px 5px;
+}
+
+/* line 2, /var/www/clairvoyant/current/app/assets/stylesheets/report.css.scss */
+.report_table table.borders {
+  border-collapse: collapse;
+}
+/* line 4, /var/www/clairvoyant/current/app/assets/stylesheets/report.css.scss */
+.report_table table.borders tr.invalid td {
+  background-color: #FBE3E4;
+}
+/* line 9, /var/www/clairvoyant/current/app/assets/stylesheets/report.css.scss */
+.report_table table.borders thead th {
+  font-weight: bold;
+  background-color: #eee;
+  line-height: 16px;
+  border-right: 1px solid white;
+  border-top: 2px solid #b4c3c8;
+}
+/* line 17, /var/www/clairvoyant/current/app/assets/stylesheets/report.css.scss */
+.report_table table.borders thead th:first-child {
+  border-left: 2px solid #b4c3c8;
+}
+/* line 21, /var/www/clairvoyant/current/app/assets/stylesheets/report.css.scss */
+.report_table table.borders thead th:last-child {
+  border-right: 2px solid #b4c3c8;
+}
+/* line 28, /var/www/clairvoyant/current/app/assets/stylesheets/report.css.scss */
+.report_table table.borders tbody tr:last-child td {
+  border-bottom: 2px solid #b4c3c8;
+}
+/* line 33, /var/www/clairvoyant/current/app/assets/stylesheets/report.css.scss */
+.report_table table.borders tbody td {
+  line-height: 16px;
+  border-right: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+}
+/* line 39, /var/www/clairvoyant/current/app/assets/stylesheets/report.css.scss */
+.report_table table.borders tbody td:first-child {
+  border-left: 2px solid #b4c3c8;
+}
+/* line 43, /var/www/clairvoyant/current/app/assets/stylesheets/report.css.scss */
+.report_table table.borders tbody td:last-child {
+  border-right: 2px solid #b4c3c8;
+}
