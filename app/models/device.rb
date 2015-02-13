@@ -8,19 +8,31 @@ class Device < ActiveRecord::Base
 
 
   def process_params(parameters)
+    self.clairvoyant.last_seen_at = Time.now
+    self.clairvoyant.save
     par_ar = parameters.split(/,/)
+    p par_ar
     par_ar.each do |p|
+      p p
       if p != ""
         par = self.decode_canopen_string(p)
-        self.setvalues(par[:index_hex] , par[:data_hex])
+        p par
+        if par != nil and par[:index_hex] != nil and par[:data_hex] != nil
+          self.setvalues(par[:index_hex] , par[:data_hex])
+        end
       end
     end
   end
 
   def decode_canopen_string(s)
-    ind_hex = "0x" + s[4..5] + s[2..3] + s[6..7]
-    data_hex = "0x" + s[14..15] + s[12..13] + s[10..11] + s[8..9]
-    result = {index_hex: ind_hex, data_hex: data_hex , data: data_hex.to_i(16)}
+
+    if s[0] == "4"
+      ind_hex = "0x" + s[4..5] + s[2..3] + s[6..7]
+      data_hex = "0x" + s[14..15] + s[12..13] + s[10..11] + s[8..9]
+      result = {index_hex: ind_hex, data_hex: data_hex , data: data_hex.to_i(16)}
+      return result
+    end
+    return nil
   end
 
   def has_fault?

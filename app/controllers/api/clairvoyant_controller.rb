@@ -2,21 +2,32 @@ class Api::ClairvoyantController < Api::ApplicationController
     before_filter :restrict_access , :except => [ :create_clairvoyant , :all_clairvoyants, :clairvoyant_devices]
  
 
-
+ 
     def clairvoyant_devices
       c = Clairvoyant.includes([:device]).where(:id => params[:clairvoyant_id]).first
       devices = []
+
+
+
+      last_seen = c.last_seen_at.strftime( "%d/%m/%Y - %I:%M%p")
+
       
+      
+      
+
       c.device.each do |d|
         has_fault = false
         if d.devicefaults.where(value:  1).length > 0
           has_fault = true
         end
-        dev_array = {device: d, has_fault: has_fault}
+
+        
+
+        dev_array = {device: d, has_fault: has_fault }
         devices << dev_array
       end
 
-      response = {clairvoyant: c, devices: devices}
+      response = {clairvoyant: c, devices: devices , last_seen: last_seen}
       send_response(response)
 
     end

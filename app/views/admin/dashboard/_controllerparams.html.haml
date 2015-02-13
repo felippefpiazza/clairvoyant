@@ -1,7 +1,9 @@
 %button{"ng-click"=>"closeControllerDetails()", :style => "float:right; margin-right: 30px;margin-top: 10px;"}
 	Fechar 
 %br
-{{clairvoyant_devices.clairvoyant.identification}} / {{controller_data_store.device.device_name}}
+{{clairvoyant_devices.clairvoyant.identification}}  / {{controller_data_store.device.device_name}}
+%br
+(Última Conexão: {{clairvoyant_devices.last_seen}})
 %br
 %div.central{:width => "1000px"}
 	%div.menu_header{ "ng-repeat" => "dev in clairvoyant_devices.devices" , "ng-click"=>"openControllerDetails(clairvoyant_devices.clairvoyant.id,dev.device.id)"	}

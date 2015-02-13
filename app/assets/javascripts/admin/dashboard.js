@@ -30,7 +30,7 @@ angular.module('RefreshDashboard', ['ngAnimate'])
 			}
 		    var controller_data_pulling_timeout = $timeout(function() {
 		      $scope.intervalgetControllerData();
-		    }, 500000);
+		    }, 20000);
 		  };	
 
 
@@ -97,7 +97,7 @@ angular.module('RefreshDashboard', ['ngAnimate'])
 		    $timeout(function() {
 		      $scope.getClairvoyantData();
 		      $scope.intervalFunction();
-		    }, 60000)
+		    }, 20000)
 		  };
 
 		$scope.toogleClairvoyantDetails = function(clairvoyant_id){
